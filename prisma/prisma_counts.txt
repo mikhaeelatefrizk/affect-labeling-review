@@ -1,0 +1,21 @@
+PRISMA 2020 counts - affect labeling systematic review
+============================================================
+Records identified (databases)        : 1842
+Records identified (other sources)    : 47
+Duplicates removed                    : 318
+Records screened (title/abstract)     : 1571
+Excluded at title/abstract            : 1289
+Full-text assessed                    : 282
+Full-text excluded total              : 182
+  - did not manipulate AL             : 71
+  - no physiological/neural outcome   : 38
+  - review without primary data       : 26
+  - non-English                       : 5
+  - duplicate sample                  : 6
+  - insufficient data for ES          : 36
+Included in synthesis                 : 100
+  Neuroimaging/neurostim              : 42
+  Psychophysiology (meta-analysis)    : 9
+  Behavioral/self-report              : 28
+  Clinical & patient populations      : 12
+  Existing meta-analyses              : 9
