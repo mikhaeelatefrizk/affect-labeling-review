@@ -10,14 +10,11 @@ authors:
     family-names: "Wahba"
     name-particle: "Atef Rizk"
     email: "mikhaeelatefrizk@proton.me"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"  # TODO: add your ORCID
-    # affiliation: ""                                # TODO: add affiliation
+    affiliation: "Independent researcher"
 identifiers:
   - type: url
     value: "https://github.com/mikhaeelatefrizk/affect-labeling-review"
     description: "GitHub repository"
-  # - type: doi
-  #   value: "10.5281/zenodo.XXXXXXX"  # populated automatically on first Zenodo release
 repository-code: "https://github.com/mikhaeelatefrizk/affect-labeling-review"
 abstract: >-
   An open-research package for a pre-registered (PROSPERO) systematic review

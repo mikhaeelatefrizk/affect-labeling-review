@@ -5,7 +5,6 @@
 [![License: manuscript CC-BY-4.0](https://img.shields.io/badge/manuscript-CC--BY--4.0-lightgrey.svg)](LICENSE-MANUSCRIPT)
 [![License: data CC-BY-4.0](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE-DATA)
 [![Cite this repository](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
-<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) — populated on first Zenodo release -->
 
 This repository is the full open-research package for a pre-registered (PROSPERO) systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
 
@@ -201,5 +200,3 @@ Errata, reproducibility issues, and data corrections are welcome. See [`CONTRIBU
 ## Contact
 
 Open an issue on this repository, or use the email in [`CITATION.cff`](CITATION.cff) for matters that aren't suitable for a public issue.
-
-<!-- ORCID: TODO — add yours so the GitHub citation widget shows it. -->

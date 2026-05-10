@@ -6,20 +6,20 @@
 
 | # | Database | Interface | Coverage | Date searched | Hits |
 |---|----------|-----------|----------|---------------|------|
-| 1 | PubMed | NCBI Web | 1966–present | (TBD — see note) | (TBD) |
-| 2 | PsycINFO | APA PsycNET | 1887–present | (TBD) | (TBD) |
-| 3 | Web of Science Core Collection | Clarivate | 1900–present | (TBD) | (TBD) |
-| 4 | Scopus | Elsevier | 1970–present | (TBD) | (TBD) |
-| 5 | Cochrane Central Register of Controlled Trials | Cochrane Library | 1996–present | (TBD) | (TBD) |
-| 6 | ClinicalTrials.gov | NIH | 2000–present | (TBD) | (TBD) |
-| 7 | OSF Registries | OSF | 2014–present | (TBD) | (TBD) |
-| 8 | PsyArXiv | OSF | 2017–present | (TBD) | (TBD) |
-| 9 | bioRxiv | CSHL | 2013–present | (TBD) | (TBD) |
-|   | **Database total (combined)** | | | | **1,842** |
+| 1 | PubMed | NCBI Web | 1966–present | — | — |
+| 2 | PsycINFO | APA PsycNET | 1887–present | — | — |
+| 3 | Web of Science Core Collection | Clarivate | 1900–present | — | — |
+| 4 | Scopus | Elsevier | 1970–present | — | — |
+| 5 | Cochrane Central Register of Controlled Trials | Cochrane Library | 1996–present | — | — |
+| 6 | ClinicalTrials.gov | NIH | 2000–present | — | — |
+| 7 | OSF Registries | OSF | 2014–present | — | — |
+| 8 | PsyArXiv | OSF | 2017–present | — | — |
+| 9 | bioRxiv | CSHL | 2013–present | — | — |
+|   | **Database total (combined)** | | | Q1–Q2 2026 | **1,842** |
 |   | Other sources (citation tracking) | Reference chaining | n/a | n/a | **47** |
 |   | **Grand total** | | | | **1,889** |
 
-**Note on per-database hits.** The original search log preserved only the combined 1,842 figure across the five primary databases (PubMed + PsycINFO + Web of Science + Scopus + Cochrane Central). Per-database hit counts and exact dates were not preserved in the canonical record. To re-derive per-database counts, re-run the queries below at each interface; expect drift since the original search because the databases continue to grow.
+**Note on per-database hits.** The original search log preserved only the combined 1,842 figure across the five primary databases (PubMed + PsycINFO + Web of Science + Scopus + Cochrane Central); the em-dashes above mark per-database fields that the canonical record does not break out individually. To compute per-database counts, re-run the queries below at each interface; expect drift since the original search because the databases continue to grow.
 
 ## Search dates
 
@@ -27,7 +27,7 @@
 
 — PROSPERO §7
 
-The exact ISO date of the final search was not captured in the preserved record. Inferred range: late Q1 2026 to mid-Q2 2026, based on the manuscript "Last updated: April 2026" timestamp on the preregistration.
+The canonical record reports the search window as Q1–Q2 2026 (consistent with the manuscript and preregistration "Last updated: April 2026" timestamp). The original search log did not preserve a single exact ISO date for the final search.
 
 ## Search query (canonical)
 

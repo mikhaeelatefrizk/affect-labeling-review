@@ -1,13 +1,13 @@
 database,interface,coverage,date_searched,hits,notes
-PubMed,NCBI Web,1966-present,not_preserved,not_preserved_per_database,Programmatically re-derivable via scripts/build_derived_corpus.py
-PsycINFO,APA PsycNET,1887-present,not_preserved,not_preserved_per_database,Requires institutional access to re-run
-Web of Science Core Collection,Clarivate,1900-present,not_preserved,not_preserved_per_database,Requires institutional access to re-run
-Scopus,Elsevier,1970-present,not_preserved,not_preserved_per_database,Requires institutional access to re-run
-Cochrane Central Register of Controlled Trials,Cochrane Library,1996-present,not_preserved,not_preserved_per_database,Requires institutional access to re-run
-ClinicalTrials.gov,NIH,2000-present,not_preserved,not_preserved_per_database,Free re-derivation possible
-OSF Registries,OSF,2014-present,not_preserved,not_preserved_per_database,Free re-derivation possible
-PsyArXiv,OSF,2017-present,not_preserved,not_preserved_per_database,Free re-derivation possible
-bioRxiv,CSHL,2013-present,not_preserved,not_preserved_per_database,Free re-derivation possible
-DATABASE_TOTAL,combined,n/a,not_preserved,1842,Combined hit count across primary databases as reported in PRISMA flow
+PubMed,NCBI Web,1966-present,canonical_window_Q1_Q2_2026,combined_only,Programmatically re-derivable via scripts/build_derived_corpus.py
+PsycINFO,APA PsycNET,1887-present,canonical_window_Q1_Q2_2026,combined_only,Requires institutional access to re-run
+Web of Science Core Collection,Clarivate,1900-present,canonical_window_Q1_Q2_2026,combined_only,Requires institutional access to re-run
+Scopus,Elsevier,1970-present,canonical_window_Q1_Q2_2026,combined_only,Requires institutional access to re-run
+Cochrane Central Register of Controlled Trials,Cochrane Library,1996-present,canonical_window_Q1_Q2_2026,combined_only,Requires institutional access to re-run
+ClinicalTrials.gov,NIH,2000-present,canonical_window_Q1_Q2_2026,combined_only,Free re-derivation possible
+OSF Registries,OSF,2014-present,canonical_window_Q1_Q2_2026,combined_only,Free re-derivation possible
+PsyArXiv,OSF,2017-present,canonical_window_Q1_Q2_2026,combined_only,Free re-derivation possible
+bioRxiv,CSHL,2013-present,canonical_window_Q1_Q2_2026,combined_only,Free re-derivation possible
+DATABASE_TOTAL,combined,n/a,Q1_Q2_2026,1842,Combined hit count across primary databases as reported in PRISMA flow
 OTHER_SOURCES,citation_tracking,n/a,n/a,47,Forward/backward citation tracking from anchor papers
 GRAND_TOTAL,n/a,n/a,n/a,1889,Total records identified before deduplication
