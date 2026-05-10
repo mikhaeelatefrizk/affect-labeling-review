@@ -63,6 +63,7 @@ This repository ships with extended documentation under [`docs/`](docs/) for rea
 
 | You are… | Start here |
 |---|---|
+| Anyone with a quick question (year filter? where's the included list?) | [`docs/faq.md`](docs/faq.md) |
 | A reader who wants the gist | [`README.md`](README.md) (this file) → [`manuscript/manuscript.md`](manuscript/manuscript.md) |
 | A peer reviewer or thesis committee | [`prisma/PRISMA_2020_checklist.md`](prisma/PRISMA_2020_checklist.md) → [`supplementary/risk_of_bias_explanation.md`](supplementary/risk_of_bias_explanation.md) → [`docs/methodology-deep-dive.md`](docs/methodology-deep-dive.md) |
 | A reproducer | [`docs/reproducibility-guide.md`](docs/reproducibility-guide.md) → run `make all` → [`docs/troubleshooting.md`](docs/troubleshooting.md) if anything fails |
@@ -126,7 +127,8 @@ affect-labeling-review/
 │   └── screening/                         ← screening log (schema, template, derived)
 │       ├── screening_log.schema.json      ← JSON Schema 2020-12
 │       ├── screening_log.template.csv     ← empty template + 1 example row
-│       ├── included_papers.csv            ← 22 canonical-identifiable includes
+│       ├── included_papers.csv            ← 22 confidently-identifiable of 100 includes
+│       ├── all_references.csv             ← every references.bib entry + confirmed-include flag + manuscript-mention count
 │       ├── derived_corpus.csv             ← 3,892 PubMed-derived records
 │       └── derived_screening_log.csv      ← labelled corpus (PU framing)
 │
@@ -139,6 +141,7 @@ affect-labeling-review/
 │
 ├── docs/                                  ← extended documentation for reproducers and reusers
 │   ├── README.md                          ← reading orders + table of contents
+│   ├── faq.md                             ← year filter, where's the included list, how to label a re-run corpus
 │   ├── reproducibility-guide.md           ← clone → byte-identical outputs
 │   ├── for-ml-researchers.md              ← detailed PU-learning guide
 │   ├── for-masters-students.md            ← concrete onboarding letter for ML-screening thesis work

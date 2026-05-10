@@ -60,3 +60,6 @@ secrets.yaml
 # Build artifacts
 *.pdf.bak
 *.png.bak
+
+# One-off outgoing bundles (per-recipient zip exports)
+exports/

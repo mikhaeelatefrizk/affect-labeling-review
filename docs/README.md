@@ -6,8 +6,10 @@ This directory holds documentation that goes deeper than the top-level README, w
 
 | File | Audience | What it covers |
 |---|---|---|
+| [`faq.md`](faq.md) | Anyone with a quick question | Year filter, where the included-papers list is, how to label a re-run corpus, licensing — direct answers with pointers to canonical sources. **Read this first.** |
 | [`reproducibility-guide.md`](reproducibility-guide.md) | Anyone reproducing the analysis | Step-by-step from clone to byte-identical outputs, on Linux/macOS/Windows. Pinned Python, container option, common failure modes, SHA-256 receipts. |
 | [`for-ml-researchers.md`](for-ml-researchers.md) | ML / NLP researchers building screening models | Detailed positive-unlabeled framing, class balance, suggested baselines, evaluation protocol, recommended PU-learning methods, expected ceilings. |
+| [`for-masters-students.md`](for-masters-students.md) | Master's-thesis readers building an AI screening pipeline | Concrete onboarding letter mapping each likely thesis-needed artifact to a downloadable file, with three labeling strategies. |
 | [`methodology-deep-dive.md`](methodology-deep-dive.md) | SLR methodologists, peer reviewers | Full reasoning behind the lab-stratified moderator analysis, the choice of Hedges' *g* over Cohen's *d*, the τ² estimator selection, and the GRADE simplification. |
 | [`extending-the-corpus.md`](extending-the-corpus.md) | Researchers who want to add their own data | How to publish a second-coder screening pass, how to run the search at a different database (PsycINFO / WoS / Scopus / Cochrane), how to merge a new effect size into the meta-analysis. |
 | [`glossary.md`](glossary.md) | Anyone unfamiliar with SLR terminology | Plain-language definitions for affect labelling, PRISMA, RoB 2, Hedges' *g*, prediction interval, PU learning, and ~30 other terms used in the package. |
