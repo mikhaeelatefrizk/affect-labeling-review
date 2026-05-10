@@ -1,0 +1,9 @@
+# The CI step "Assert that committed outputs match regenerated outputs" runs
+# `git diff --exit-code` against these regenerated files. They must be stored
+# with LF so a Linux runner regenerating them produces a byte-for-byte match
+# regardless of the OS the file was committed from.
+data/screening/included_papers.csv text eol=lf
+meta-analysis/*.csv                 text eol=lf
+meta-analysis/*.txt                 text eol=lf
+prisma/prisma_counts.csv            text eol=lf
+prisma/prisma_counts.txt            text eol=lf

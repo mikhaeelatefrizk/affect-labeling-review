@@ -179,7 +179,10 @@ def main() -> int:
     fieldnames = ["record_id", "bibtex_key", "subset", "title", "authors",
                   "year", "journal", "doi", "source_in_repo"]
     with OUT_CSV.open("w", encoding="utf-8", newline="") as fh:
-        writer = csv.DictWriter(fh, fieldnames=fieldnames)
+        # lineterminator='\n' overrides csv module's default '\r\n' so the
+        # output matches the LF-normalized blob committed to git regardless
+        # of host OS — required for the CI reproducibility-diff check.
+        writer = csv.DictWriter(fh, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow(row)
