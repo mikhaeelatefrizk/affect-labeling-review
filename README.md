@@ -4,6 +4,7 @@
 [![License: code MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
 [![License: manuscript CC-BY-4.0](https://img.shields.io/badge/manuscript-CC--BY--4.0-lightgrey.svg)](LICENSE-MANUSCRIPT)
 [![License: data CC-BY-4.0](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE-DATA)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20109596.svg)](https://doi.org/10.5281/zenodo.20109596)
 [![Cite this repository](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--1069--9558-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0006-1069-9558)
 
@@ -178,11 +179,11 @@ The canonical citation is in [`CITATION.cff`](CITATION.cff) (machine-readable). 
 
 ```
 Wahba, M. A. R. (2026). Putting feelings into words: A systematic review
-and meta-analysis of affect labeling. Preprint,
-https://github.com/mikhaeelatefrizk/affect-labeling-review.
+and meta-analysis of affect labeling (v1.0.0).
+Zenodo. https://doi.org/10.5281/zenodo.20109596
 ```
 
-GitHub renders a "Cite this repository" button on the project page using `CITATION.cff`. On the next tagged release, a Zenodo DOI will be minted and the badge above will turn live.
+The repository has a permanent Zenodo DOI: [10.5281/zenodo.20109596](https://doi.org/10.5281/zenodo.20109596). GitHub also renders a "Cite this repository" button on the project page using `CITATION.cff`.
 
 ## License
 
