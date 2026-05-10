@@ -21,7 +21,7 @@ keywords: [affect labeling, emotion regulation, amygdala, prefrontal cortex, ski
 
 **Conclusions.** The amygdala-dampening claim survives meta-analytic scrutiny in narrowly defined paradigms but is heavily moderated by language, intensity, valence, age, clinical status, and sequencing with other regulation strategies. The effect attenuates substantially outside the originating laboratory and is consistent with structural author non-independence in the supportive evidence base. Confident clinical translation — from "name it to tame it" parenting advice to FBI tactical empathy — outpaces the underlying evidence. We recommend large-N, pre-registered, multisite replications with whole-brain analyses and harmonized effect-size reporting before further extrapolation.
 
-**PROSPERO registration:** [to be assigned]. **Open data and code:** https://github.com/[author]/affect-labeling-review.
+**Pre-registration:** PROSPERO-compatible structured protocol included as `prereg/PROSPERO_preregistration.md` in the open repository (was not formally submitted to the PROSPERO registry). **Open data and code:** https://github.com/mikhaeelatefrizk/affect-labeling-review. **Permanent archive:** Zenodo, DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595).
 
 ---
 
@@ -41,7 +41,7 @@ This systematic review asks four interlocking questions. First, **what is the cu
 
 ### 2.1 Protocol and registration
 
-This review was conducted following the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 statement (Page et al., 2021). The protocol was pre-registered on PROSPERO (ID to be assigned) and OSF, with full search strings, eligibility criteria, data-extraction template, and analytic plan deposited prior to formal screening. The full pre-registration is included as a supplementary document in this repository.
+This review was conducted following the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 statement (Page et al., 2021). A structured PROSPERO-compatible protocol — with full search strings, eligibility criteria, data-extraction template, and analytic plan — was authored prior to formal screening and is included as `prereg/PROSPERO_preregistration.md` in the open repository. The protocol was not formally submitted to the PROSPERO registry; the completed review and the full open-research package are permanently archived on Zenodo with concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). One protocol-execution deviation is noted: screening and data extraction were carried out by a single reviewer rather than the two-reviewer scheme originally described, so inter-rater agreement statistics are unavailable; this limitation is acknowledged in Section 4.6 and in the open repository.
 
 ### 2.2 Eligibility criteria
 

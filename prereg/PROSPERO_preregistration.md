@@ -1,7 +1,9 @@
 # Pre-registration: Systematic Review and Meta-Analysis of Affect Labeling
 
-**Format:** PROSPERO-compatible structured pre-registration (CRD template)
-**Last updated:** April 2026
+**Format:** PROSPERO-compatible structured pre-registration (CRD template), updated post-completion.
+**Last updated:** May 2026 — preprint released, final identifiers populated, single-coder deviation documented in Sections 5, 19, and 20.
+**Repository:** https://github.com/mikhaeelatefrizk/affect-labeling-review
+**Permanent archive:** Zenodo concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595)
 
 ---
 
@@ -15,15 +17,28 @@ English.
 
 ## 3. Anticipated start / completion dates
 
-[To be completed at registration.]
+**Start:** 2026-Q1 (protocol development and pilot search).
+**Completion (preprint):** 2026-04-29 (initial v1.0 release of the full manuscript and open-research package).
+**Completion (Zenodo archive):** 2026-05-10 (v1.0.0 archived; DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595)).
+**Completion (peer-reviewed publication):** pending journal submission.
 
 ## 4. Stage of review at submission
 
-The review is at the protocol-development stage. No screening, data extraction, or synthesis has been performed against the final pre-registered protocol; pilot work informed the search strategy and inclusion criteria but did not include effect-size extraction.
+The review is **complete at the preprint / open-research-package stage** as of May 2026. The full ~14,000-word manuscript, all canonical PRISMA 2020 counts, the 22 canonical-identifiable included studies, the k=9 random-effects meta-analysis (pooled Hedges' *g* = −0.43, 95% CI [−0.68, −0.18]), the lab-stratified moderator analysis, the risk-of-bias assessments, and all reproduction code are publicly available at https://github.com/mikhaeelatefrizk/affect-labeling-review and permanently archived on Zenodo. Peer-reviewed journal submission is pending.
 
 ## 5. Named contact / team / organisation / funding / collaborators / conflicts
 
-[To be completed.] Two independent reviewers will conduct screening and extraction; at least one team member has methodological training in meta-analysis. The review is unfunded at the time of pre-registration; any subsequent funding will be added. The review team declares no commercial conflicts of interest.
+**Named contact.** Mikhaeel Atef Rizk Wahba — mikhaeelatefrizk@proton.me — ORCID [0009-0006-1069-9558](https://orcid.org/0009-0006-1069-9558).
+
+**Team.** Single reviewer (the named contact). The protocol's original aspiration of two independent reviewers was not realized in execution; the review was conducted by a single coder. This deviation is documented in Sections 19 and 20 below, in the manuscript's *Limitations* section, and in the open repository's README and `data/screening/README.md`. Inter-rater agreement (Cohen's κ) is therefore not available.
+
+**Organisation.** Independent researcher (no institutional affiliation at time of release).
+
+**Funding.** Unfunded. No financial support was received for the design, execution, or dissemination of this review.
+
+**Collaborators.** None.
+
+**Conflicts of interest.** The reviewer declares no commercial, financial, or other conflicts of interest.
 
 ## 6. Review questions
 
@@ -56,7 +71,7 @@ No date or language restrictions at the database level. Language exclusions made
 
 ## 8. URL to search strategy
 
-OSF link to be assigned at registration.
+The full PRISMA-S compliant search strategy report is at https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/data/searches/search_strategy.md, with a structured machine-readable version at https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/data/searches/search_strategy.csv. The canonical Boolean query is also reproduced verbatim in Section 7 above.
 
 ## 9. Condition or domain being studied
 
@@ -104,13 +119,17 @@ Effect-size moderation by language of labeling (native vs. foreign), stimulus va
 
 ## 19. Selection process
 
-Two reviewers will independently screen titles, abstracts, and full texts. Disagreements resolved by discussion or, if unresolved, by a third reviewer. Inter-rater agreement reported as Cohen's κ; reviewers will calibrate on 50 records before commencing the formal screen, with κ ≥ 0.70 required to proceed.
+**Pre-registered protocol (intent).** Two reviewers were to independently screen titles, abstracts, and full texts. Disagreements were to be resolved by discussion or, if unresolved, by a third reviewer. Inter-rater agreement was to be reported as Cohen's κ, with reviewers calibrating on 50 records and κ ≥ 0.70 required to proceed.
+
+**Actual execution (deviation).** Screening was conducted by a single reviewer (the named contact in Section 5). Inter-rater agreement statistics are therefore **not available**. Aggregate PRISMA counts at each stage are canonical and machine-readable in [`prisma/prisma_counts.csv`](https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/prisma/prisma_counts.csv). For ML researchers and reviewers re-using the corpus, a derived screening log under positive-unlabeled framing is published at [`data/screening/derived_screening_log.csv`](https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/data/screening/derived_screening_log.csv). Future second-coder re-screening passes are welcomed and documented in [`data/screening/README.md`](https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/data/screening/README.md).
 
 ## 20. Extraction template
 
-The pre-registered data-extraction template (deposited on OSF) will capture: bibliographic information; study design; sample (N, age, sex, clinical status, recruitment source); manipulation (operationalization, label specificity, instructions); comparator; outcomes (modality, timing, instrument); effect size (d, g, r, η², F, t, M, SD, 95% CI as reported; computed from raw data where unreported); pre-registration status; funding source; conflicts of interest; risk of bias (RoB 2 / ROBINS-I).
+The data-extraction schema captures: bibliographic information; study design; sample (N, age, sex, clinical status, recruitment source); manipulation (operationalization, label specificity, instructions); comparator; outcomes (modality, timing, instrument); effect size (d, g, r, η², F, t, M, SD, 95% CI as reported; computed from raw data where unreported); pre-registration status; funding source; conflicts of interest; risk of bias (RoB 2 / ROBINS-I).
 
-Two reviewers will independently extract data; disagreements resolved as above.
+The realized extracted dataset for the meta-analyzed studies is at [`meta-analysis/extracted_effect_sizes.csv`](https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/meta-analysis/extracted_effect_sizes.csv); the realized risk-of-bias table is at [`supplementary/risk_of_bias.csv`](https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/supplementary/risk_of_bias.csv).
+
+**Deviation from protocol.** The pre-registered protocol called for two independent extractors. In execution, extraction was conducted by a single reviewer (see Section 19). This deviation is documented in the manuscript's *Limitations* section.
 
 ## 21. Risk of bias
 
@@ -144,7 +163,7 @@ English. Non-English papers will be screened by abstract translation and exclude
 
 ## 26. Other registration details
 
-Where this protocol is registered: PROSPERO ID to be assigned; OSF DOI to be assigned.
+This protocol was authored as a structured PROSPERO-compatible pre-registration (CRD template) but was not formally submitted to the PROSPERO registry. The completed review and full open-research package are permanently archived on Zenodo with concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595) (always resolves to the latest version) and the version-specific DOI 10.5281/zenodo.20109596 for v1.0.0. The mutable repository is at https://github.com/mikhaeelatefrizk/affect-labeling-review.
 
 ## 27. Dissemination plans
 
@@ -166,4 +185,12 @@ This protocol explicitly addresses three structural concerns identified in the a
 
 ## 30. Final report / publications
 
-To be added at completion.
+**Preprint / working paper (released 2026-04-29).** The full ~14,000-word manuscript is at https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/manuscript/manuscript.md. Headline result: pooled Hedges' *g* = −0.43, 95% CI [−0.68, −0.18], from a random-effects meta-analysis of 9 peripheral-physiology effect sizes from 7 independent studies. Lab-stratified moderator analysis: *g* = −0.74 within the UCLA Lieberman/Craske axis (k = 5, I² = 0%); *g* = −0.13 in independent laboratories (k = 4, I² = 27.8%, CI crosses zero).
+
+**Permanent archive (released 2026-05-10).** Zenodo v1.0.0, DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595).
+
+**Suggested citation:**
+
+> Wahba, M. A. R. (2026). *Putting feelings into words: A systematic review and meta-analysis of affect labeling* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.20109595
+
+**Peer-reviewed publication:** pending submission. This section will be updated upon journal acceptance.
