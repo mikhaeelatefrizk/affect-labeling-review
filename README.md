@@ -67,6 +67,7 @@ This repository ships with extended documentation under [`docs/`](docs/) for rea
 | A peer reviewer or thesis committee | [`prisma/PRISMA_2020_checklist.md`](prisma/PRISMA_2020_checklist.md) → [`supplementary/risk_of_bias_explanation.md`](supplementary/risk_of_bias_explanation.md) → [`docs/methodology-deep-dive.md`](docs/methodology-deep-dive.md) |
 | A reproducer | [`docs/reproducibility-guide.md`](docs/reproducibility-guide.md) → run `make all` → [`docs/troubleshooting.md`](docs/troubleshooting.md) if anything fails |
 | An ML / NLP researcher building a screening model | [`docs/for-ml-researchers.md`](docs/for-ml-researchers.md) → [`data/screening/derived_screening_log.csv`](data/screening/derived_screening_log.csv) |
+| A master's student building an AI screening pipeline | [`docs/for-masters-students.md`](docs/for-masters-students.md) → [`docs/for-ml-researchers.md`](docs/for-ml-researchers.md) |
 | Someone unfamiliar with SLR terminology | [`docs/glossary.md`](docs/glossary.md) (5 minutes) |
 | Someone wanting to contribute back | [`docs/extending-the-corpus.md`](docs/extending-the-corpus.md) → [`CONTRIBUTING.md`](CONTRIBUTING.md) |
 | A search-strategy peer reviewer | [`data/searches/PRISMA-S_checklist.md`](data/searches/PRISMA-S_checklist.md) |
@@ -140,6 +141,7 @@ affect-labeling-review/
 │   ├── README.md                          ← reading orders + table of contents
 │   ├── reproducibility-guide.md           ← clone → byte-identical outputs
 │   ├── for-ml-researchers.md              ← detailed PU-learning guide
+│   ├── for-masters-students.md            ← concrete onboarding letter for ML-screening thesis work
 │   ├── methodology-deep-dive.md           ← analytic-choice justifications
 │   ├── glossary.md                        ← ~50 SLR / meta-analysis / ML terms
 │   ├── troubleshooting.md                 ← top 10 reproducer issues + fixes
