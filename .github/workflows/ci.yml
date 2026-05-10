@@ -1,0 +1,66 @@
+name: ci
+
+on:
+  push:
+    branches: [main, data-completeness]
+  pull_request:
+    branches: [main]
+
+jobs:
+  reproduce:
+    name: Reproduce all outputs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run analysis (meta-analysis, PRISMA, RoB)
+        run: |
+          python meta-analysis/run_meta_analysis.py
+          python prisma/build_prisma.py
+          python supplementary/build_rob_figure.py
+
+      - name: Extract included papers from references.bib
+        run: python scripts/extract_included_list.py
+
+      - name: Validate data files against schemas
+        run: python scripts/validate_screening_log.py
+
+      - name: Compute SHA-256 of all outputs
+        run: make sha
+
+      - name: Assert that committed outputs match regenerated outputs
+        run: |
+          git diff --exit-code -- 'meta-analysis/*.csv' 'meta-analysis/*.txt' \
+            'prisma/prisma_counts.txt' 'prisma/prisma_counts.csv' \
+            'data/screening/included_papers.csv' \
+            || (echo "::error::Outputs differ from committed. Run 'make all' locally and commit the result."; exit 1)
+
+  cite-cff:
+    name: Validate CITATION.cff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dieghernan/cff-validator@v3
+
+  link-check:
+    name: README link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: lychee
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --verbose --no-progress 'README.md' 'CONTRIBUTING.md' 'data/**/*.md' 'manuscript/manuscript.md'
+          fail: true

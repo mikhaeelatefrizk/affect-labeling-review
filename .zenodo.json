@@ -1,0 +1,40 @@
+{
+  "title": "Putting feelings into words: A systematic review and meta-analysis of affect labeling",
+  "description": "<p>An open-research package for a pre-registered (PROSPERO) systematic review and random-effects meta-analysis of <strong>affect labeling</strong> &mdash; the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.</p><p><strong>Headline result.</strong> Pooled Hedges' g = &minus;0.43 (95% CI [&minus;0.68, &minus;0.18]) for peripheral physiology across 9 effect sizes from 7 independent studies. Lab-stratified analysis: g = &minus;0.74 within the UCLA Lieberman/Craske axis, g = &minus;0.13 in independent labs.</p><p><strong>Contents.</strong> Full ~14,000-word manuscript, PROSPERO preregistration, PRISMA 2020 flow with structured per-stage counts, RoB 2 / ROBINS-I assessments, effect-size dataset, the derived screening corpus reconstructed from the pre-registered PubMed query, and Python code for byte-for-byte reproducibility of every numerical result and figure. The dataset is suitable for training and benchmarking AI-assisted SLR screening systems.</p>",
+  "creators": [
+    {
+      "name": "Wahba, Mikhaeel Atef Rizk",
+      "affiliation": "TODO_AFFILIATION"
+    }
+  ],
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "affect labeling",
+    "emotion regulation",
+    "amygdala",
+    "meta-analysis",
+    "systematic review",
+    "PRISMA 2020",
+    "psychophysiology",
+    "exposure therapy",
+    "replication",
+    "open science",
+    "AI-assisted screening",
+    "machine learning for SLR"
+  ],
+  "communities": [
+    {"identifier": "open-science"}
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/mikhaeelatefrizk/affect-labeling-review",
+      "resource_type": "software"
+    }
+  ],
+  "version": "1.0.0",
+  "language": "eng"
+}

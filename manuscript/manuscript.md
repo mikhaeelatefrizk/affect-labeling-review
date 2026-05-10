@@ -262,10 +262,22 @@ Affect labeling is a real but contextually fragile phenomenon. The 2007 Lieberma
 - `meta-analysis/leave_one_out.csv` — leave-one-out sensitivity output
 - `meta-analysis/results_summary.txt` — primary results in plain text
 - `prisma/build_prisma.py` — PRISMA flow diagram code
-- `prisma/prisma_counts.txt` — counts at each PRISMA stage
+- `prisma/prisma_counts.csv` — structured machine-readable counts (canonical)
+- `prisma/prisma_counts.txt` — counts at each PRISMA stage (legacy human-readable)
 - `supplementary/risk_of_bias.csv` — full RoB table
 - `supplementary/build_rob_figure.py` — RoB summary figure code
 - `prereg/PROSPERO_preregistration.md` — full pre-registration document
+- `data/searches/search_strategy.md` — PRISMA-S compliant search strategy report
+- `data/screening/included_papers.csv` — the 100 included papers with subset assignments
+- `data/screening/derived_screening_log.csv` — labeled candidate corpus re-derived from PubMed (suitable for AI-assisted SLR screening research)
+- `data/exclusion_reason_codebook.md` — codebook for the six full-text exclusion reasons
+- `data/QUALITY_REPORT.md` — automated comparison of canonical vs. re-derived counts
+
+## Data and code availability
+
+All data, code, and supplementary materials accompanying this review are openly available at https://github.com/mikhaeelatefrizk/affect-labeling-review under permissive licenses: source code under MIT, manuscript and figures under CC-BY-4.0, and data files under CC-BY-4.0. A single `make all` from a fresh clone of the repository, with the pinned dependency set listed in `requirements.txt` (Python 3.11), regenerates every numerical result, figure, and dataset byte-for-byte. Continuous integration verifies this guarantee on every push.
+
+The screening corpus was screened by a single coder (M.A.R.W.); inter-rater agreement statistics are therefore not available. The original per-paper screening decisions and exclusion reasons were not preserved in a shareable form; aggregate counts at each PRISMA stage are reported in `prisma/prisma_counts.csv` and remain canonical. To support future AI-assisted SLR research and to provide a reproducible substitute for ML training and benchmarking, a derived screening log (`data/screening/derived_screening_log.csv`) is produced by re-running the pre-registered PubMed query via the NCBI E-utilities API and joining the result against the included-papers list parsed from the manuscript and `references.bib`. The derivation is deterministic given a PubMed snapshot; expected drift between today's snapshot and the canonical 1,842 records is reported in `data/QUALITY_REPORT.md`. Limitations of the derived dataset (loss of per-paper exclusion reasons, collapse of the title/abstract vs. full-text distinction, PubMed-only coverage of the original five-database search) are documented in `data/screening/README.md`.
 
 ## References
 

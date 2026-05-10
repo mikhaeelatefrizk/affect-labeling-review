@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Citation question
+    url: https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/CITATION.cff
+    about: How to cite this work — see CITATION.cff
+  - name: Reproducing the analysis
+    url: https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/README.md#reproducing-the-analyses
+    about: Step-by-step reproduction guide in the README
+  - name: Pre-registration (PROSPERO protocol)
+    url: https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/prereg/PROSPERO_preregistration.md
+    about: Pre-registered review protocol with full criteria

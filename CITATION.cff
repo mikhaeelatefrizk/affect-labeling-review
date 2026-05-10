@@ -1,0 +1,56 @@
+# See https://citation-file-format.github.io/ for the full specification.
+# This file makes the GitHub "Cite this repository" button work and powers
+# automatic citation in tools like Zotero, Zenodo, and Software Heritage.
+cff-version: 1.2.0
+title: "Putting feelings into words: A systematic review and meta-analysis of affect labeling"
+message: "If you use this work or its dataset, please cite using the metadata below."
+type: software
+authors:
+  - given-names: "Mikhaeel"
+    family-names: "Wahba"
+    name-particle: "Atef Rizk"
+    email: "mikhaeelatefrizk@proton.me"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"  # TODO: add your ORCID
+    # affiliation: ""                                # TODO: add affiliation
+identifiers:
+  - type: url
+    value: "https://github.com/mikhaeelatefrizk/affect-labeling-review"
+    description: "GitHub repository"
+  # - type: doi
+  #   value: "10.5281/zenodo.XXXXXXX"  # populated automatically on first Zenodo release
+repository-code: "https://github.com/mikhaeelatefrizk/affect-labeling-review"
+abstract: >-
+  An open-research package for a pre-registered (PROSPERO) systematic review
+  and random-effects meta-analysis of affect labeling, the psychological and
+  neuroscientific phenomenon in which putting feelings into words attenuates
+  emotional responses (Lieberman et al., 2007). The package contains the
+  full manuscript, PRISMA 2020 flow, RoB 2 / ROBINS-I assessments, the
+  effect-size dataset, the derived screening corpus reconstructed from the
+  pre-registered PubMed query, and all code required to reproduce every
+  numerical result and figure.
+keywords:
+  - affect labeling
+  - emotion regulation
+  - amygdala
+  - meta-analysis
+  - systematic review
+  - PRISMA 2020
+  - psychophysiology
+  - exposure therapy
+  - replication
+  - open science
+license:
+  - MIT
+  - CC-BY-4.0
+date-released: "2026-04-29"
+version: "1.0.0"
+preferred-citation:
+  type: article
+  authors:
+    - given-names: "Mikhaeel"
+      family-names: "Wahba"
+      name-particle: "Atef Rizk"
+  title: "Putting feelings into words: A systematic review and meta-analysis of affect labeling"
+  year: 2026
+  status: preprint
+  url: "https://github.com/mikhaeelatefrizk/affect-labeling-review"

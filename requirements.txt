@@ -1,0 +1,24 @@
+# Pinned for byte-for-byte reproducibility of the published outputs.
+# Looser ranges accepted for forward-compatible re-derivation.
+#
+# To install: pip install -r requirements.txt
+# To verify reproducibility: make all && git diff --exit-code
+
+# === Core analysis (used by run_meta_analysis.py, build_prisma.py, build_rob_figure.py) ===
+numpy==1.26.4
+pandas==2.1.4
+scipy==1.11.4
+matplotlib==3.8.2
+
+# === Data derivation (used by Phase-2 scripts under scripts/) ===
+requests==2.31.0
+bibtexparser==1.4.1
+jsonschema==4.20.0
+
+# === Validation tooling (used by CI and validate_screening_log.py) ===
+frictionless==5.16.0
+
+# === Optional dev tools (uncomment if you want pre-commit on your fork) ===
+# pre-commit==3.6.0
+# black==24.1.0
+# ruff==0.1.14

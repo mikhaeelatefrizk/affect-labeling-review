@@ -1,6 +1,13 @@
 # Putting feelings into words: a systematic review and meta-analysis of affect labeling
 
-This repository contains the full open-research package accompanying a systematic review and random-effects meta-analysis of affect labeling — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
+[![CI](https://github.com/mikhaeelatefrizk/affect-labeling-review/actions/workflows/ci.yml/badge.svg)](https://github.com/mikhaeelatefrizk/affect-labeling-review/actions/workflows/ci.yml)
+[![License: code MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
+[![License: manuscript CC-BY-4.0](https://img.shields.io/badge/manuscript-CC--BY--4.0-lightgrey.svg)](LICENSE-MANUSCRIPT)
+[![License: data CC-BY-4.0](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE-DATA)
+[![Cite this repository](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
+<!-- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) — populated on first Zenodo release -->
+
+This repository is the full open-research package for a pre-registered (PROSPERO) systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
 
 > **Status: Preprint / working paper. Not yet peer-reviewed.** All findings are provisional and subject to revision pending external review.
 
@@ -19,51 +26,129 @@ Pre-specified lab-stratified moderator analysis:
 
 The 0.61 g-unit gap between lab strata is larger than most moderators in the published literature and is consistent with structural author non-independence rather than incidental variation.
 
+## For data scientists and ML researchers
+
+The screening corpus is published as a labeled dataset suitable for training and evaluating AI-assisted SLR screening systems (see [`data/screening/`](data/screening/)). Quick orientation:
+
+| You want… | File | Note |
+|-----------|------|------|
+| The 100 included papers (positive class) | `data/screening/included_papers.csv` | Generated from `references.bib` + manuscript |
+| The candidate corpus (~1,800 papers) with `included` 0/1 labels | `data/screening/derived_screening_log.csv` | **The training file.** Re-derived from PubMed using the pre-registered query |
+| The pre-registered query and search strategy | [`data/searches/search_strategy.md`](data/searches/search_strategy.md) | PRISMA-S compliant |
+| The exclusion-reason taxonomy | [`data/exclusion_reason_codebook.md`](data/exclusion_reason_codebook.md) | The 6 full-text exclusion codes used in the original review |
+| Aggregate PRISMA counts | [`prisma/prisma_counts.csv`](prisma/prisma_counts.csv) | Structured form of the published flow |
+
+**Important honesty up front.** The derived screening log is a *re-derivation*, not the original per-paper screening record (which was not preserved in shareable form). It collapses the title/abstract vs. full-text decision distinction into a single binary label, and exclusion reasons are aggregated rather than per-paper. See [`data/screening/README.md`](data/screening/README.md) for the full caveats.
+
+## Data Availability
+
+All data needed to reproduce, re-analyze, or extend this review is in this repository under [`LICENSE-DATA`](LICENSE-DATA) (CC-BY-4.0). No external archive is currently used; the [`.zenodo.json`](.zenodo.json) configures a DOI mint on the next tagged release.
+
+| Layer | Where | Source of truth? |
+|-------|-------|------------------|
+| Manuscript and figures | `manuscript/`, `figures/` | Yes |
+| Pre-registration | `prereg/PROSPERO_preregistration.md` | Yes (canonical inclusion/exclusion criteria) |
+| PRISMA flow and counts | `prisma/prisma_counts.csv` (structured), `prisma/prisma_counts.txt` (legacy) | Yes |
+| Effect sizes | `meta-analysis/extracted_effect_sizes.csv` | Yes |
+| Risk-of-bias assessments | `supplementary/risk_of_bias.csv` | Yes |
+| Search strategy | `data/searches/` | Yes (restructured from PROSPERO) |
+| Included papers list | `data/screening/included_papers.csv` | Derived from `references.bib` + manuscript |
+| Candidate corpus + labels | `data/screening/derived_screening_log.csv` | Derived from PubMed re-query |
+
+**What is *not* available.** The original per-paper screening decisions (1,571 title/abstract decisions and 282 full-text decisions) were not preserved in a shareable form. Derived labels are the closest reproducible substitute. See [`data/screening/README.md`](data/screening/README.md).
+
 ## Repository structure
 
 ```
 affect-labeling-review/
-├── README.md                                  ← this file
-├── LICENSE                                    ← CC-BY-4.0 (text) + MIT (code)
-├── HOW_TO_PUSH_TO_GITHUB.md                   ← step-by-step upload guide
-├── .gitignore
-├── references.bib                             ← BibTeX for all references
-├── manuscript/
-│   └── manuscript.md                          ← full ~14,000-word paper
+├── README.md                              ← this file
+├── LICENSE                                ← multi-license pointer
+├── LICENSE-CODE                           ← MIT (source files)
+├── LICENSE-MANUSCRIPT                     ← CC-BY-4.0 (manuscript + figures)
+├── LICENSE-DATA                           ← CC-BY-4.0 (data files)
+├── CITATION.cff                           ← machine-readable citation
+├── .zenodo.json                           ← DOI metadata (Zenodo)
+├── CONTRIBUTING.md                        ← how to report errata, propose corrections
+├── CODE_OF_CONDUCT.md                     ← Contributor Covenant 2.1
+├── Makefile                               ← reproducibility entry point — run `make all`
+├── requirements.txt                       ← pinned Python deps
+├── environment.yml                        ← conda alternative
+├── references.bib                         ← BibTeX for all references
+│
+├── manuscript/manuscript.md               ← full ~14,000-word paper
+├── prereg/PROSPERO_preregistration.md     ← full pre-registration
+│
 ├── meta-analysis/
-│   ├── run_meta_analysis.py                   ← analysis code
-│   ├── extracted_effect_sizes.csv             ← input data + extracted g
-│   ├── leave_one_out.csv                      ← LOO sensitivity output
-│   └── results_summary.txt                    ← plain-text summary
+│   ├── run_meta_analysis.py               ← analysis code
+│   ├── extracted_effect_sizes.csv         ← effect-size dataset (canonical)
+│   ├── leave_one_out.csv                  ← LOO sensitivity output
+│   └── results_summary.txt                ← plain-text summary
+│
 ├── prisma/
-│   ├── build_prisma.py                        ← PRISMA flow generator
-│   └── prisma_counts.txt                      ← exact PRISMA counts
+│   ├── build_prisma.py                    ← PRISMA flow generator
+│   ├── prisma_counts.csv                  ← structured counts (canonical)
+│   └── prisma_counts.txt                  ← legacy human-readable counts
+│
 ├── supplementary/
-│   ├── risk_of_bias.csv                       ← RoB 2 / ROBINS-I judgments
-│   └── build_rob_figure.py                    ← traffic-light figure code
-├── prereg/
-│   └── PROSPERO_preregistration.md            ← full pre-registration
-└── figures/
-    ├── prisma_flow.png / .pdf                 ← PRISMA 2020 flow diagram
-    ├── rob_summary.png / .pdf                 ← risk-of-bias traffic light
-    ├── forest_plot.png / .pdf                 ← random-effects forest plot
-    └── funnel_plot.png / .pdf                 ← funnel plot
+│   ├── risk_of_bias.csv                   ← RoB 2 / ROBINS-I judgments
+│   └── build_rob_figure.py                ← traffic-light figure code
+│
+├── data/                                  ← labeled datasets (CC-BY-4.0)
+│   ├── README.md                          ← dataset index
+│   ├── exclusion_reason_codebook.md       ← 6 full-text exclusion codes
+│   ├── searches/                          ← PRISMA-S search strategy
+│   └── screening/                         ← screening log (schema, template, derived)
+│
+├── scripts/                               ← derivation + validation tooling
+│   ├── extract_included_list.py           ← parse references.bib → included_papers.csv
+│   ├── build_derived_corpus.py            ← re-query PubMed → derived_corpus.csv
+│   ├── build_derived_screening_log.py     ← join → derived_screening_log.csv
+│   ├── build_quality_report.py            ← QUALITY_REPORT.md
+│   └── validate_screening_log.py          ← schema + reconciliation check
+│
+├── figures/
+│   ├── prisma_flow.png / .pdf             ← PRISMA 2020 flow diagram
+│   ├── rob_summary.png / .pdf             ← risk-of-bias traffic light
+│   ├── forest_plot.png / .pdf             ← random-effects forest plot
+│   └── funnel_plot.png / .pdf             ← funnel plot
+│
+└── .github/
+    ├── workflows/ci.yml                   ← reproducibility CI
+    ├── ISSUE_TEMPLATE/                    ← erratum, repro, data-correction forms
+    └── PULL_REQUEST_TEMPLATE.md
 ```
 
 ## Reproducing the analyses
 
-Three Python scripts regenerate every numerical result and figure:
-
 ```bash
-pip install numpy pandas scipy matplotlib
-
+git clone https://github.com/mikhaeelatefrizk/affect-labeling-review.git
 cd affect-labeling-review
+make install       # pinned Python deps (Python 3.11)
+make all           # regenerate every output: figures, counts, derived dataset
+make verify        # assert outputs match the committed versions
+```
+
+Without `make` (Windows without WSL):
+
+```powershell
+pip install -r requirements.txt
 python meta-analysis/run_meta_analysis.py
 python prisma/build_prisma.py
 python supplementary/build_rob_figure.py
+python scripts/extract_included_list.py
+python scripts/build_derived_corpus.py
+python scripts/build_derived_screening_log.py
+python scripts/build_quality_report.py
+python scripts/validate_screening_log.py
 ```
 
-Each script is self-contained, deterministic, and writes output to its own directory or to `figures/`.
+`make all` from a fresh clone with the pinned dependency set (Python 3.11.x, see [`requirements.txt`](requirements.txt)) reproduces every output byte-for-byte. Drift on a different version stack is reported but not necessarily an error — see [`Makefile`](Makefile) target `sha` for a SHA-256 receipt.
+
+## Re-deriving the screening corpus
+
+`make derive` re-queries PubMed via the NCBI E-utilities API using the pre-registered Boolean query, fetches each candidate's metadata, joins against the included-papers list, and writes the labeled corpus to `data/screening/derived_screening_log.csv`. The whole derivation is deterministic given a PubMed snapshot.
+
+Because PubMed continues to grow, today's hit count will exceed the canonical 1,842 records reported in the original PRISMA flow. This drift is reported in [`data/QUALITY_REPORT.md`](data/QUALITY_REPORT.md) (regenerated by `make quality`) and is informational, not error.
 
 ## What's verified, what's flagged
 
@@ -85,10 +170,11 @@ The Burklund et al. (2024) PTSD pilot trial is flagged for a **commercial confli
 3. The dissociation between physiological and self-report measures means effect-size estimates depend on outcome choice in ways flagged but not fully resolved.
 4. The meta-analysis includes nine effect sizes from seven studies — adequate for detecting a moderate pooled effect but underpowered for many moderator analyses.
 5. Inclusion criteria excluded studies in non-English without translation.
+6. **Screening was performed by a single coder.** Inter-rater agreement statistics are not available. The derived screening log (`data/screening/derived_screening_log.csv`) reproduces a binary label per paper from public sources, but the original per-paper screening decisions and exclusion reasons were not preserved.
 
-## Citation
+## How to cite
 
-If you use this work, please cite:
+The canonical citation is in [`CITATION.cff`](CITATION.cff) (machine-readable). Plain text:
 
 ```
 Wahba, M. A. R. (2026). Putting feelings into words: A systematic review
@@ -96,13 +182,24 @@ and meta-analysis of affect labeling. Preprint,
 https://github.com/mikhaeelatefrizk/affect-labeling-review.
 ```
 
+GitHub renders a "Cite this repository" button on the project page using `CITATION.cff`. On the next tagged release, a Zenodo DOI will be minted and the badge above will turn live.
+
 ## License
 
-- **Manuscript text and figures:** Creative Commons Attribution 4.0 International (CC-BY-4.0)
-- **Code:** MIT License
+Three licenses by content category:
 
-See `LICENSE` for full terms.
+- **Code** (`*.py`, `Makefile`, CI configs, schemas): MIT — see [`LICENSE-CODE`](LICENSE-CODE).
+- **Manuscript and figures**: CC-BY-4.0 — see [`LICENSE-MANUSCRIPT`](LICENSE-MANUSCRIPT).
+- **Data files**: CC-BY-4.0 — see [`LICENSE-DATA`](LICENSE-DATA).
+
+See [`LICENSE`](LICENSE) for the at-a-glance map.
+
+## Contributing
+
+Errata, reproducibility issues, and data corrections are welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the workflow and the issue templates under [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/).
 
 ## Contact
 
-Open an issue on this repository.
+Open an issue on this repository, or use the email in [`CITATION.cff`](CITATION.cff) for matters that aren't suitable for a public issue.
+
+<!-- ORCID: TODO — add yours so the GitHub citation widget shows it. -->

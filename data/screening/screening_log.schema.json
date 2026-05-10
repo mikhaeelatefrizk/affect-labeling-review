@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/data/screening/screening_log.schema.json",
+  "title": "Affect Labeling Review — Screening Log",
+  "description": "Schema for any per-record screening log accompanying the affect-labeling systematic review. Accepts both canonical hand-screened logs (with explicit decisions and exclusion reasons) and derived logs (with binary inclusion labels only).",
+  "type": "object",
+  "required": ["record_id", "title", "decision"],
+  "additionalProperties": false,
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "description": "Stable identifier for this record within the screening log. Recommend a prefix like 'pub-' for PubMed-derived rows.",
+      "pattern": "^[A-Za-z0-9_:-]+$"
+    },
+    "source_database": {
+      "type": "string",
+      "enum": ["pubmed", "psycinfo", "web_of_science", "scopus", "cochrane_central", "clinicaltrials_gov", "osf_registries", "psyarxiv", "biorxiv", "citation_tracking", "other"],
+      "description": "Database of origin for this record."
+    },
+    "pmid": {
+      "type": ["string", "null"],
+      "description": "PubMed ID, if available.",
+      "pattern": "^[0-9]+$"
+    },
+    "doi": {
+      "type": ["string", "null"],
+      "description": "Digital Object Identifier, if available.",
+      "pattern": "^10\\..+/.+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Article title."
+    },
+    "abstract": {
+      "type": ["string", "null"],
+      "description": "Article abstract. May be null if not retrievable or omitted for copyright reasons."
+    },
+    "year": {
+      "type": ["integer", "null"],
+      "minimum": 1800,
+      "maximum": 2100,
+      "description": "Publication year."
+    },
+    "authors": {
+      "type": ["string", "null"],
+      "description": "Author list, semicolon-separated, in citation order."
+    },
+    "journal": {
+      "type": ["string", "null"],
+      "description": "Journal or publication venue name."
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["include", "exclude", "maybe", "unscreened", "unknown"],
+      "description": "Final screening decision. For hand-screened logs: 'include' / 'exclude' / 'maybe' (escalates to a second reviewer). For derived logs (e.g., derived_screening_log.csv): 'include' if the row matched a canonical-identifiable include; 'unknown' for unmatched rows that may be true excludes or unidentified canonical includes (positive-unlabeled framing). 'unscreened' is reserved for rows queued but not yet decided."
+    },
+    "decision_stage": {
+      "type": ["string", "null"],
+      "enum": ["title_abstract", "full_text", "combined", null],
+      "description": "Which screening stage produced the decision. 'combined' for derived logs that don't preserve the stage distinction."
+    },
+    "exclusion_reason": {
+      "type": ["string", "null"],
+      "enum": [
+        "off_topic",
+        "no_al_manipulation",
+        "no_phys_neural_outcome",
+        "review_without_primary_data",
+        "non_english",
+        "duplicate_sample",
+        "insufficient_data_for_extraction",
+        "wrong_population",
+        "wrong_design",
+        "other",
+        null
+      ],
+      "description": "Reason for exclusion, drawn from the codebook in data/exclusion_reason_codebook.md. Null if decision is 'include' or 'maybe' or 'unscreened'."
+    },
+    "synthesis_subset": {
+      "type": ["string", "null"],
+      "enum": ["psychophysiology_meta_analysis", "neuroimaging_neurostim", "behavioral_self_report", "clinical_patient_populations", "prior_meta_analyses", null],
+      "description": "Subset of the synthesis that an included paper belongs to. Null if the paper was excluded."
+    },
+    "screener_id": {
+      "type": ["string", "null"],
+      "description": "Identifier of the human (or pipeline) that made the decision. Use 'derived_pubmed_2026' for the derived screening log."
+    },
+    "screening_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "ISO-8601 date the decision was recorded."
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "description": "Free-text notes; e.g., reasoning for borderline decisions."
+    }
+  },
+  "examples": [
+    {
+      "record_id": "canonical-lieberman2007",
+      "source_database": "pubmed",
+      "pmid": "17576282",
+      "doi": "10.1111/j.1467-9280.2007.01916.x",
+      "title": "Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli",
+      "year": 2007,
+      "authors": "Lieberman MD; Eisenberger NI; Crockett MJ; Tom SM; Pfeifer JH; Way BM",
+      "journal": "Psychological Science",
+      "decision": "include",
+      "decision_stage": "full_text",
+      "exclusion_reason": null,
+      "synthesis_subset": "neuroimaging_neurostim",
+      "screener_id": "manuscript_extract_2026",
+      "screening_date": "2026-04-01",
+      "notes": "Foundational paper for the AL paradigm."
+    },
+    {
+      "record_id": "pub-39812345",
+      "source_database": "pubmed",
+      "pmid": "39812345",
+      "doi": null,
+      "title": "Example excluded paper title",
+      "year": 2024,
+      "decision": "exclude",
+      "decision_stage": "combined",
+      "exclusion_reason": null,
+      "synthesis_subset": null,
+      "screener_id": "derived_pubmed_2026",
+      "screening_date": "2026-05-10",
+      "notes": "Derived label: not in manuscript's included-papers list."
+    }
+  ]
+}

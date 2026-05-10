@@ -1,0 +1,45 @@
+name: "Reproducibility issue"
+description: "make all does not reproduce the committed outputs on your machine."
+title: "[repro] "
+labels: ["reproducibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Run `make all` on a clean clone, then `git status` to see which files differ. Paste the diff below.
+
+  - type: input
+    id: platform
+    attributes:
+      label: "Platform"
+      placeholder: "e.g. macOS 14.5, arm64; Ubuntu 22.04 x86_64; Windows 11 + WSL2"
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: "Python version"
+      placeholder: "Output of `python --version`"
+    validations:
+      required: true
+
+  - type: textarea
+    id: diff
+    attributes:
+      label: "Output of `git diff --stat` after `make all`"
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: "Specific file with the largest discrepancy (head of `git diff <file>`)"
+      render: diff
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: "What have you tried?"
+      description: "Re-installed deps? Tried a fresh clone? Switched Python version?"

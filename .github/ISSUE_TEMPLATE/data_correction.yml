@@ -1,0 +1,53 @@
+name: "Data correction"
+description: "Inclusion/exclusion of a paper, an effect size, or a risk-of-bias signal needs to change."
+title: "[data] "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for substantive corrections to the screening corpus, included-papers list, effect sizes, or risk-of-bias judgments. For typo-level errors use the **Erratum** template instead.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: "What kind of correction?"
+      options:
+        - "Paper should be included (currently excluded)"
+        - "Paper should be excluded (currently included)"
+        - "Effect size value or computation"
+        - "Risk-of-bias judgment"
+        - "Subset assignment (psychophys/neuro/behav/clinical/prior-MA)"
+        - "Other (describe below)"
+    validations:
+      required: true
+
+  - type: input
+    id: doi
+    attributes:
+      label: "DOI of the paper involved"
+      placeholder: "10.xxxx/yyyy"
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: "Why does it need to change?"
+      description: "Reference the eligibility criteria (PROSPERO sections 10–13) for inclusion changes; show your computation for effect-size changes."
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: "Authoritative source"
+      description: "Quote from the paper, screenshot, or data extract that supports the correction."
+
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: "Acknowledgment"
+      options:
+        - label: "I understand that data corrections require a re-run of `make all` and a manuscript erratum where appropriate."
+          required: true

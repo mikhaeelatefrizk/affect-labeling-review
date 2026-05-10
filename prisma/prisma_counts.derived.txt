@@ -1,0 +1,13 @@
+PRISMA counts - canonical vs. derived comparison
+============================================================
+Numbers labelled 'canonical' are from prisma_counts.csv (manuscript-of-record).
+Numbers labelled 'derived' come from data/screening/derived_screening_log.csv,
+regenerated today by re-running the PROSPERO query against PubMed.
+Drift is expected because PubMed continues to grow.
+
+Records (canonical, identified-databases) : 1842
+Records (derived, total in corpus)        : 3902
+Included (canonical, all subsets)         : 100
+Included (derived, label=include)         : 0
+Excluded (canonical, ti-ab + full-text)   : 1471
+Excluded (derived, label=exclude)         : 0

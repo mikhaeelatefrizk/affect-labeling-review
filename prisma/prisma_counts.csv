@@ -1,0 +1,20 @@
+stage,sub_stage,count,description
+identification,records_identified_databases,1842,Records identified through database searching (PubMed + PsycINFO + Web of Science + Scopus + Cochrane Central; combined)
+identification,records_identified_other_sources,47,Records identified through other sources (forward/backward citation tracking from anchor papers)
+identification,duplicates_removed,318,Duplicate records removed before screening
+screening,records_screened,1571,Records screened at title/abstract
+screening,records_excluded_at_ti_ab,1289,Records excluded at title/abstract (per-paper reasons not preserved)
+eligibility,full_text_assessed,282,Full-text articles assessed for eligibility
+eligibility,full_text_excluded,182,Full-text articles excluded (total across the 6 reasons below)
+exclusion_breakdown,no_al_manipulation,71,Did not manipulate affect labeling per PROSPERO section 11
+exclusion_breakdown,no_phys_neural_outcome,38,No physiological or neural outcome measured
+exclusion_breakdown,review_without_primary_data,26,Literature review or commentary without primary empirical data
+exclusion_breakdown,non_english,5,Non-English with no translated full text
+exclusion_breakdown,duplicate_sample,6,Duplicate sample of an already-included study
+exclusion_breakdown,insufficient_data_for_extraction,36,Insufficient data to extract or compute Hedges g
+included,total,100,Total included in qualitative and quantitative synthesis
+included,subset_neuroimaging_neurostim,42,Neuroimaging and neurostimulation studies (narrative synthesis)
+included,subset_psychophysiology_meta_analysis,9,Psychophysiology subset (random-effects meta-analysis)
+included,subset_behavioral_self_report,28,Behavioral and self-report studies (narrative synthesis)
+included,subset_clinical_patient_populations,12,Clinical and patient populations (narrative synthesis)
+included,subset_prior_meta_analyses,9,Existing coordinate-based and other meta-analyses (synthesized narratively)

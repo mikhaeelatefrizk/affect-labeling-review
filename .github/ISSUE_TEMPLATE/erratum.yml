@@ -1,0 +1,53 @@
+name: "Erratum (citation, DOI, or numerical error)"
+description: "A specific factual error in the manuscript, references, or numerical results."
+title: "[erratum] "
+labels: ["erratum"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for catching this. Errata help keep the published record accurate.
+        Please be specific: file path, line number where applicable, and a citation or DOI for the correct value.
+
+  - type: input
+    id: location
+    attributes:
+      label: "Where is the error?"
+      description: "File path and (if applicable) line/section number."
+      placeholder: "e.g. references.bib, line 215; or manuscript.md §3.3"
+    validations:
+      required: true
+
+  - type: textarea
+    id: incorrect
+    attributes:
+      label: "What is currently written?"
+      description: "Quote the exact text or value as it currently appears."
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: "What should it say?"
+      description: "Provide the correct value with a verifiable source (DOI, journal page, etc.)."
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: "Source for the correction"
+      description: "DOI, URL of journal of record, PubMed ID, or other authoritative source."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: "Confirmation"
+      options:
+        - label: "I have verified the correct value against an authoritative source."
+          required: true

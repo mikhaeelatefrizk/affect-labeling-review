@@ -1,0 +1,16 @@
+name: affect-labeling-review
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy=1.26.4
+  - pandas=2.1.4
+  - scipy=1.11.4
+  - matplotlib=3.8.2
+  - requests=2.31.0
+  - jsonschema=4.20.0
+  - pip=23.3.2
+  - pip:
+    - bibtexparser==1.4.1
+    - frictionless==5.16.0

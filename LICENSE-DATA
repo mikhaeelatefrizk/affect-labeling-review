@@ -1,0 +1,39 @@
+Creative Commons Attribution 4.0 International (CC-BY-4.0)
+
+Copyright (c) 2026 Mikhaeel Atef Rizk Wahba
+
+The data files in this repository are released under the same CC-BY-4.0
+terms as the manuscript (see `LICENSE-MANUSCRIPT`).
+
+You are free to use these data for research, teaching, training of machine
+learning models, replication studies, and any other purpose, including
+commercial use, provided you give appropriate credit using the citation in
+`CITATION.cff` at the root of this repository.
+
+Specific notes that apply to data files in this repository:
+
+1. Bibliographic metadata (titles, authors, abstracts, DOIs) for cited
+   papers comes from PubMed and from the published works themselves.
+   Bibliographic facts are not copyrightable in most jurisdictions.
+   Abstracts may be copyright the original publishers; their inclusion here
+   is consistent with fair-use research-data conventions (e.g., the
+   SYNERGY benchmark, CLEF eHealth) and U.S. fair use under 17 U.S.C. § 107.
+   If you are a publisher with a concern about a specific abstract, please
+   open an issue and we will address it.
+
+2. The derived screening log (`data/screening/derived_screening_log.csv`)
+   is a structured re-derivation of the screening corpus from the
+   pre-registered PubMed query. It is not the original per-paper screening
+   record from the systematic review (which was not preserved in shareable
+   form). See `data/screening/README.md` for details.
+
+3. Aggregate PRISMA counts and the included-papers list are factual
+   summaries derived from the published manuscript and reference list.
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+------------------------------------------------------------------------
+Files covered: every `.csv` and `.json` file under `data/`, every file
+under `meta-analysis/` ending in `.csv` or `.txt` that contains data,
+`supplementary/risk_of_bias.csv`, and `prisma/prisma_counts.txt` /
+`prisma/prisma_counts.csv`.
