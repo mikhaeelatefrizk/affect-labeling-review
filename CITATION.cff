@@ -14,8 +14,8 @@ authors:
     orcid: "https://orcid.org/0009-0006-1069-9558"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.20109596"
-    description: "Zenodo DOI for the v1.0.0 release archive (concept DOI; resolves to latest)"
+    value: "10.5281/zenodo.20109595"
+    description: "Zenodo concept DOI; always resolves to the latest archived version of this work"
   - type: url
     value: "https://github.com/mikhaeelatefrizk/affect-labeling-review"
     description: "GitHub repository"
@@ -55,5 +55,5 @@ preferred-citation:
   title: "Putting feelings into words: A systematic review and meta-analysis of affect labeling"
   year: 2026
   status: preprint
-  doi: "10.5281/zenodo.20109596"
-  url: "https://doi.org/10.5281/zenodo.20109596"
+  doi: "10.5281/zenodo.20109595"
+  url: "https://doi.org/10.5281/zenodo.20109595"
