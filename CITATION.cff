@@ -11,6 +11,7 @@ authors:
     name-particle: "Atef Rizk"
     email: "mikhaeelatefrizk@proton.me"
     affiliation: "Independent researcher"
+    orcid: "https://orcid.org/0009-0006-1069-9558"
 identifiers:
   - type: url
     value: "https://github.com/mikhaeelatefrizk/affect-labeling-review"
@@ -47,6 +48,7 @@ preferred-citation:
     - given-names: "Mikhaeel"
       family-names: "Wahba"
       name-particle: "Atef Rizk"
+      orcid: "https://orcid.org/0009-0006-1069-9558"
   title: "Putting feelings into words: A systematic review and meta-analysis of affect labeling"
   year: 2026
   status: preprint

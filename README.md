@@ -5,6 +5,7 @@
 [![License: manuscript CC-BY-4.0](https://img.shields.io/badge/manuscript-CC--BY--4.0-lightgrey.svg)](LICENSE-MANUSCRIPT)
 [![License: data CC-BY-4.0](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE-DATA)
 [![Cite this repository](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0006--1069--9558-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0006-1069-9558)
 
 This repository is the full open-research package for a pre-registered (PROSPERO) systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
 
@@ -199,4 +200,4 @@ Errata, reproducibility issues, and data corrections are welcome. See [`CONTRIBU
 
 ## Contact
 
-Open an issue on this repository, or use the email in [`CITATION.cff`](CITATION.cff) for matters that aren't suitable for a public issue.
+Open an issue on this repository, or use the email in [`CITATION.cff`](CITATION.cff) for matters that aren't suitable for a public issue. ORCID: [0009-0006-1069-9558](https://orcid.org/0009-0006-1069-9558).
