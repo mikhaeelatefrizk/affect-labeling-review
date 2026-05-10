@@ -1,0 +1,5 @@
+# DOI resolvers (doi.org / dx.doi.org) reject lychee with HTTP 403 due to
+# publisher anti-bot policies; the DOIs themselves resolve correctly in a
+# real browser and are validated upstream by the journal/preprint server
+# at submission time. Skipping here avoids CI false-positives.
+^https?://(dx\.)?doi\.org/.*
