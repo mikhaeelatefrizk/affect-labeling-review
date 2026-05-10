@@ -1,18 +1,11 @@
 name: ci
 
-# --- Trigger configuration ---
-# Auto-triggers (push, pull_request) are temporarily disabled because the
-# account-level billing flag prevents Actions from running. The workflow
-# body is fully tested locally (see docs/reproducibility-guide.md), and
-# `make verify` reproduces every check this CI would run. When the billing
-# flag is lifted, re-enable the auto-triggers by uncommenting the two
-# blocks below; nothing else needs to change.
 on:
   workflow_dispatch: {}
-  # push:
-  #   branches: [main]
-  # pull_request:
-  #   branches: [main]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   reproduce:
