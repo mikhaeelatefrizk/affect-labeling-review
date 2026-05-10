@@ -1,5 +1,6 @@
 # Putting feelings into words: a systematic review and meta-analysis of affect labeling
 
+[![CI](https://github.com/mikhaeelatefrizk/affect-labeling-review/actions/workflows/ci.yml/badge.svg)](https://github.com/mikhaeelatefrizk/affect-labeling-review/actions/workflows/ci.yml)
 [![License: code MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
 [![License: manuscript CC-BY-4.0](https://img.shields.io/badge/manuscript-CC--BY--4.0-lightgrey.svg)](LICENSE-MANUSCRIPT)
 [![License: data CC-BY-4.0](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE-DATA)
