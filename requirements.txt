@@ -13,7 +13,7 @@ matplotlib==3.8.2
 # === Data derivation (used by Phase-2 scripts under scripts/) ===
 requests==2.31.0
 bibtexparser==1.4.1
-jsonschema==4.20.0
+jsonschema==4.17.3  # held below 4.18 to satisfy frictionless 5.16.0's `jsonschema<4.18` constraint
 
 # === Validation tooling (used by CI and validate_screening_log.py) ===
 frictionless==5.16.0
