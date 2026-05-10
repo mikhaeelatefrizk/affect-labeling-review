@@ -1,0 +1,30 @@
+# EditorConfig (https://editorconfig.org/) — consistent code style across editors.
+# All major editors and IDEs honour this file natively or via plugin.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{md,markdown}]
+trim_trailing_whitespace = false   # markdown uses two trailing spaces for line break
+
+[*.{yml,yaml,json,toml}]
+indent_size = 2
+
+[Makefile]
+indent_style = tab
+
+[*.csv]
+trim_trailing_whitespace = false   # preserve embedded whitespace in cells
+
+[*.bib]
+indent_size = 2
+
+[*.cff]
+indent_size = 2

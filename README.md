@@ -57,11 +57,26 @@ All data needed to reproduce, re-analyze, or extend this review is in this repos
 
 **What is *not* available.** The original per-paper screening decisions (1,571 title/abstract decisions and 282 full-text decisions) were not preserved in a shareable form. Derived labels are the closest reproducible substitute. See [`data/screening/README.md`](data/screening/README.md).
 
+## Documentation guide
+
+This repository ships with extended documentation under [`docs/`](docs/) for readers who want to *use* the package — not just cite it. Pick your path:
+
+| You are… | Start here |
+|---|---|
+| A reader who wants the gist | [`README.md`](README.md) (this file) → [`manuscript/manuscript.md`](manuscript/manuscript.md) |
+| A peer reviewer or thesis committee | [`prisma/PRISMA_2020_checklist.md`](prisma/PRISMA_2020_checklist.md) → [`supplementary/risk_of_bias_explanation.md`](supplementary/risk_of_bias_explanation.md) → [`docs/methodology-deep-dive.md`](docs/methodology-deep-dive.md) |
+| A reproducer | [`docs/reproducibility-guide.md`](docs/reproducibility-guide.md) → run `make all` → [`docs/troubleshooting.md`](docs/troubleshooting.md) if anything fails |
+| An ML / NLP researcher building a screening model | [`docs/for-ml-researchers.md`](docs/for-ml-researchers.md) → [`data/screening/derived_screening_log.csv`](data/screening/derived_screening_log.csv) |
+| Someone unfamiliar with SLR terminology | [`docs/glossary.md`](docs/glossary.md) (5 minutes) |
+| Someone wanting to contribute back | [`docs/extending-the-corpus.md`](docs/extending-the-corpus.md) → [`CONTRIBUTING.md`](CONTRIBUTING.md) |
+| A search-strategy peer reviewer | [`data/searches/PRISMA-S_checklist.md`](data/searches/PRISMA-S_checklist.md) |
+
 ## Repository structure
 
 ```
 affect-labeling-review/
 ├── README.md                              ← this file
+├── CHANGELOG.md                           ← versioned change history
 ├── LICENSE                                ← multi-license pointer
 ├── LICENSE-CODE                           ← MIT (source files)
 ├── LICENSE-MANUSCRIPT                     ← CC-BY-4.0 (manuscript + figures)
@@ -70,34 +85,49 @@ affect-labeling-review/
 ├── .zenodo.json                           ← DOI metadata (Zenodo)
 ├── CONTRIBUTING.md                        ← how to report errata, propose corrections
 ├── CODE_OF_CONDUCT.md                     ← Contributor Covenant 2.1
+├── SECURITY.md                            ← vulnerability disclosure policy
+├── .editorconfig                          ← cross-editor code-style consistency
 ├── Makefile                               ← reproducibility entry point — run `make all`
 ├── requirements.txt                       ← pinned Python deps
 ├── environment.yml                        ← conda alternative
 ├── references.bib                         ← BibTeX for all references
 │
-├── manuscript/manuscript.md               ← full ~14,000-word paper
-├── prereg/PROSPERO_preregistration.md     ← full pre-registration
+├── manuscript/                            ← the manuscript and its README
+│   └── manuscript.md                      ← full ~14,000-word paper
 │
-├── meta-analysis/
+├── prereg/                                ← pre-registration
+│   └── PROSPERO_preregistration.md        ← PROSPERO-compatible structured protocol
+│
+├── meta-analysis/                         ← random-effects meta-analysis
 │   ├── run_meta_analysis.py               ← analysis code
 │   ├── extracted_effect_sizes.csv         ← effect-size dataset (canonical)
 │   ├── leave_one_out.csv                  ← LOO sensitivity output
 │   └── results_summary.txt                ← plain-text summary
 │
-├── prisma/
+├── prisma/                                ← PRISMA 2020 flow + reporting
 │   ├── build_prisma.py                    ← PRISMA flow generator
 │   ├── prisma_counts.csv                  ← structured counts (canonical)
-│   └── prisma_counts.txt                  ← legacy human-readable counts
+│   ├── prisma_counts.txt                  ← legacy human-readable counts
+│   └── PRISMA_2020_checklist.md           ← 27-item reporting checklist
 │
-├── supplementary/
+├── supplementary/                         ← risk-of-bias artifacts
 │   ├── risk_of_bias.csv                   ← RoB 2 / ROBINS-I judgments
-│   └── build_rob_figure.py                ← traffic-light figure code
+│   ├── build_rob_figure.py                ← traffic-light figure code
+│   └── risk_of_bias_explanation.md        ← per-study rationale narrative
 │
 ├── data/                                  ← labeled datasets (CC-BY-4.0)
-│   ├── README.md                          ← dataset index
+│   ├── README.md                          ← dataset index + data dictionary
 │   ├── exclusion_reason_codebook.md       ← 6 full-text exclusion codes
+│   ├── QUALITY_REPORT.md                  ← canonical-vs-derived comparison
 │   ├── searches/                          ← PRISMA-S search strategy
+│   │   ├── search_strategy.md/.csv        ← canonical query, dates, hits
+│   │   └── PRISMA-S_checklist.md          ← 16-item search-reporting checklist
 │   └── screening/                         ← screening log (schema, template, derived)
+│       ├── screening_log.schema.json      ← JSON Schema 2020-12
+│       ├── screening_log.template.csv     ← empty template + 1 example row
+│       ├── included_papers.csv            ← 22 canonical-identifiable includes
+│       ├── derived_corpus.csv             ← 3,892 PubMed-derived records
+│       └── derived_screening_log.csv      ← labelled corpus (PU framing)
 │
 ├── scripts/                               ← derivation + validation tooling
 │   ├── extract_included_list.py           ← parse references.bib → included_papers.csv
@@ -106,17 +136,28 @@ affect-labeling-review/
 │   ├── build_quality_report.py            ← QUALITY_REPORT.md
 │   └── validate_screening_log.py          ← schema + reconciliation check
 │
-├── figures/
+├── docs/                                  ← extended documentation for reproducers and reusers
+│   ├── README.md                          ← reading orders + table of contents
+│   ├── reproducibility-guide.md           ← clone → byte-identical outputs
+│   ├── for-ml-researchers.md              ← detailed PU-learning guide
+│   ├── methodology-deep-dive.md           ← analytic-choice justifications
+│   ├── glossary.md                        ← ~50 SLR / meta-analysis / ML terms
+│   ├── troubleshooting.md                 ← top 10 reproducer issues + fixes
+│   └── extending-the-corpus.md            ← second-coder + database-broadening guide
+│
+├── figures/                               ← rendered outputs (PNG + PDF)
 │   ├── prisma_flow.png / .pdf             ← PRISMA 2020 flow diagram
 │   ├── rob_summary.png / .pdf             ← risk-of-bias traffic light
 │   ├── forest_plot.png / .pdf             ← random-effects forest plot
 │   └── funnel_plot.png / .pdf             ← funnel plot
 │
 └── .github/
-    ├── workflows/ci.yml                   ← reproducibility CI
+    ├── workflows/ci.yml                   ← reproducibility CI (auto-trigger temporarily off; see CHANGELOG)
     ├── ISSUE_TEMPLATE/                    ← erratum, repro, data-correction forms
     └── PULL_REQUEST_TEMPLATE.md
 ```
+
+Every directory has a `README.md` orienting you to its contents and regeneration command.
 
 ## Reproducing the analyses
 
