@@ -1,8 +1,7 @@
 ---
 title: "Putting feelings into words: a systematic review and meta-analysis of affect labeling"
 author:
-  - "[Lead Author], [Affiliation]"
-  - "[Coauthor], [Affiliation]"
+  - "Mikhaeel Atef Rizk Wahba, Independent researcher (ORCID 0009-0006-1069-9558)"
 date: "April 2026"
 keywords: [affect labeling, emotion regulation, amygdala, prefrontal cortex, skin conductance, replication, meta-analysis, systematic review]
 ---
@@ -53,7 +52,11 @@ PubMed, PsycINFO, Web of Science Core Collection, Scopus, Cochrane Central, Clin
 
 ### 2.4 Selection process
 
-Two reviewers screened titles, abstracts, and full texts independently. Inter-rater agreement was Cohen's κ = 0.81 at the title/abstract level and κ = 0.87 at full text. Disagreements were resolved by consensus or, when unresolved, by a third reviewer. The PRISMA flow diagram (Figure 1) reports exact counts: 1,842 records identified through database searching plus 47 from other sources, 318 duplicates removed, 1,571 records screened, 1,289 excluded at title/abstract, 282 full-text articles assessed, 182 excluded with reasons (71 did not manipulate AL; 38 had no physiological or neural outcome; 26 were reviews without primary data; 5 were non-English without translation; 6 were duplicate samples; 36 had insufficient data for effect-size extraction), and 100 included in qualitative synthesis.
+**Pre-registered protocol (intent).** Two reviewers were to independently screen titles, abstracts, and full texts; disagreements were to be resolved by consensus or, if unresolved, by a third reviewer; inter-rater agreement was to be reported as Cohen's κ.
+
+**Actual execution (deviation).** Screening and full-text assessment were conducted by a single reviewer (the named author). **Inter-rater agreement statistics are therefore not available.** This deviation from the pre-registered two-reviewer scheme is acknowledged in §4.6 *Limitations*, in the open repository at `data/screening/README.md`, and in the pre-registration document at `prereg/PROSPERO_preregistration.md` §19/§20. The derived screening log at `data/screening/derived_screening_log.csv` is provided under a positive-unlabelled framing so that an independent second-coder pass can be added by future contributors (workflow documented in `docs/extending-the-corpus.md`); reproducing κ against any such second pass would close the gap retrospectively.
+
+The PRISMA flow diagram (Figure 1) reports the following stage counts, all of which are structured machine-readably at `prisma/prisma_counts.csv`: 1,842 records identified through database searching plus 47 from other sources, 318 duplicates removed, 1,571 records screened, 1,289 excluded at title/abstract, 282 full-text articles assessed, 182 excluded with reasons (71 did not manipulate affect labeling; 38 had no physiological or neural outcome; 26 were reviews without primary data; 5 were non-English without translation; 6 were duplicate samples; 36 had insufficient data for effect-size extraction), and 100 included in qualitative synthesis. The original raw database exports and per-paper screening decisions were not preserved in a shareable form; aggregate counts at each stage are canonical and per-paper rationales are reconstructible only to the extent documented in `data/screening/README.md`.
 
 ### 2.5 Data extraction
 
@@ -73,7 +76,7 @@ All analysis code is provided in the accompanying repository as `meta-analysis/r
 
 ### 3.1 Literature flow and study characteristics
 
-Of 1,571 deduplicated records screened, 282 progressed to full-text review and 100 met inclusion criteria, comprising 42 neuroimaging and neurostimulation studies (fMRI, PET, fNIRS, TMS, EEG/ERP), 9 studies in the quantitative meta-analysis of peripheral physiology, 28 behavioral and self-report studies, 12 clinical and patient-population studies, and 9 existing meta-analyses synthesized narratively. The Lieberman laboratory and close collaborators contributed approximately 30 of the 50 most-cited papers — a concentration we treat as a structural source of bias throughout. Risk-of-bias judgments are summarized in Figure 2; full justifications appear in Supplementary Table S1.
+Of 1,571 deduplicated records screened, 282 progressed to full-text review and 100 met inclusion criteria, comprising 42 neuroimaging and neurostimulation studies (fMRI, PET, fNIRS, TMS, EEG/ERP), 9 effect-size contributions from 7 unique studies in the quantitative meta-analysis of peripheral physiology (Kircanski 2012 contributes 3 comparator contrasts; the other 6 studies each contribute one effect size), 28 behavioral and self-report studies, 12 clinical and patient-population studies, and 9 existing meta-analyses synthesized narratively. The Lieberman laboratory and close collaborators contributed approximately 30 of the 50 most-cited papers — a concentration we treat as a structural source of bias throughout. Risk-of-bias judgments are summarized in Figure 2; full justifications appear in Supplementary Table S1.
 
 ### 3.2 Foundational neuroscience: a robust but narrow circuit
 

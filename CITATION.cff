@@ -21,14 +21,19 @@ identifiers:
     description: "GitHub repository"
 repository-code: "https://github.com/mikhaeelatefrizk/affect-labeling-review"
 abstract: >-
-  An open-research package for a pre-registered (PROSPERO) systematic review
-  and random-effects meta-analysis of affect labeling, the psychological and
-  neuroscientific phenomenon in which putting feelings into words attenuates
-  emotional responses (Lieberman et al., 2007). The package contains the
-  full manuscript, PRISMA 2020 flow, RoB 2 / ROBINS-I assessments, the
-  effect-size dataset, the derived screening corpus reconstructed from the
-  pre-registered PubMed query, and all code required to reproduce every
-  numerical result and figure.
+  An open-research package for a systematic review and random-effects
+  meta-analysis of affect labeling, the psychological and neuroscientific
+  phenomenon in which putting feelings into words attenuates emotional
+  responses (Lieberman et al., 2007). A PROSPERO-compatible structured
+  pre-registration is included in the repository (`prereg/PROSPERO_preregistration.md`)
+  but was not formally submitted to the PROSPERO registry. Screening was
+  conducted by a single reviewer (deviation from the pre-registered
+  two-reviewer protocol; inter-rater κ therefore unavailable). The package
+  contains the full manuscript, PRISMA 2020 flow with structured per-stage
+  counts, RoB 2 / ROBINS-I assessments, the effect-size dataset, the
+  derived screening corpus reconstructed from the pre-registered PubMed
+  query, and all code required to reproduce every numerical result and
+  figure.
 keywords:
   - affect labeling
   - emotion regulation
