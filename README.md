@@ -157,7 +157,7 @@ affect-labeling-review/
 │   └── funnel_plot.png / .pdf             ← funnel plot
 │
 └── .github/
-    ├── workflows/ci.yml                   ← reproducibility CI (auto-trigger temporarily off; see CHANGELOG)
+    ├── workflows/ci.yml                   ← reproducibility CI (runs on every push + PR)
     ├── ISSUE_TEMPLATE/                    ← erratum, repro, data-correction forms
     └── PULL_REQUEST_TEMPLATE.md
 ```
