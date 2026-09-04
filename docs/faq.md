@@ -35,7 +35,7 @@ The PRISMA flow records **100 included papers** at the synthesis stage, broken d
 A **per-paper enumeration of all 100 does not exist** in machine-readable form. This is the load-bearing limitation of the public dataset:
 
 - The original per-paper screening decisions for the 1,571 title/abstract records and the 282 full-text records were **not preserved** in a shareable form.
-- Of the 100 final includes, only **22 are unambiguously identifiable** from the analysis code (`meta-analysis/run_meta_analysis.py` for the 7 meta-analysis studies; `supplementary/build_rob_figure.py` for the 19 risk-of-bias studies; 4 overlap = 22 unique).
+- Of the 100 final includes, only **22 are unambiguously identifiable** from the analysis code (`meta-analysis/run_meta_analysis.py` for the 7 canonical included studies of the psychophysiology subset, 6 of which enter the v1.1.0 synthesis — McRae 2010 excluded, see CHANGELOG; `supplementary/risk_of_bias.csv` for the 21 risk-of-bias studies; 6 overlap = 22 unique).
 - The remaining **78 are cited in the manuscript prose** but the boundary between "included study" and "background citation" was not flagged per-entry in `references.bib`.
 
 What you can use:

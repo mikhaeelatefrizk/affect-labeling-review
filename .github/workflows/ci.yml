@@ -35,6 +35,9 @@ jobs:
       - name: Extract included papers from references.bib
         run: python scripts/extract_included_list.py
 
+      - name: Build the structured reference list
+        run: python scripts/build_all_references.py
+
       - name: Validate data files against schemas
         run: python scripts/validate_screening_log.py
 
@@ -45,7 +48,8 @@ jobs:
         run: |
           git diff --exit-code -- 'meta-analysis/*.csv' 'meta-analysis/*.txt' \
             'prisma/prisma_counts.txt' 'prisma/prisma_counts.csv' \
-            'data/screening/included_papers.csv' \
+            'prisma/prisma_counts.derived.txt' \
+            'data/screening/included_papers.csv' 'data/screening/all_references.csv' \
             || (echo "::error::Outputs differ from committed. Run 'make all' locally and commit the result."; exit 1)
 
   cite-cff:

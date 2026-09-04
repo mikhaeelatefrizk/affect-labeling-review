@@ -97,7 +97,7 @@ affect-labeling-review/
 ├── references.bib                         ← BibTeX for all references
 │
 ├── manuscript/                            ← the manuscript and its README
-│   └── manuscript.md                      ← full ~14,000-word paper
+│   └── manuscript.md                      ← full ~10,500-word paper
 │
 ├── prereg/                                ← pre-registration
 │   └── PROSPERO_preregistration.md        ← PROSPERO-compatible structured protocol

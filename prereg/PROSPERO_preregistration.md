@@ -1,7 +1,7 @@
 # Pre-registration: Systematic Review and Meta-Analysis of Affect Labeling
 
 **Format:** PROSPERO-compatible structured pre-registration (CRD template), updated post-completion.
-**Last updated:** May 2026 — preprint released, final identifiers populated, single-coder deviation documented in Sections 5, 19, and 20.
+**Last updated:** September 2026 (v1.1.0) — effect-size corrections recorded; earlier: May 2026 — preprint released, final identifiers populated, single-coder deviation documented in Sections 5, 19, and 20.
 **Repository:** https://github.com/mikhaeelatefrizk/affect-labeling-review
 **Permanent archive:** Zenodo concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595)
 
@@ -24,7 +24,7 @@ English.
 
 ## 4. Stage of review at submission
 
-The review is **complete at the preprint / open-research-package stage** as of May 2026. The full ~14,000-word manuscript, all canonical PRISMA 2020 counts, the 22 canonical-identifiable included studies, the k=8 random-effects meta-analysis (pooled Hedges' *g* = −0.49, 95% CI [−0.73, −0.26]; k=9 and *g* = −0.43 through v1.0.1, corrected in v1.1.0), the lab-stratified moderator analysis, the risk-of-bias assessments, and all reproduction code are publicly available at https://github.com/mikhaeelatefrizk/affect-labeling-review and permanently archived on Zenodo. Peer-reviewed journal submission is pending.
+The review is **complete at the preprint / open-research-package stage** as of May 2026. The full ~10,500-word manuscript, all canonical PRISMA 2020 counts, the 22 canonical-identifiable included studies, the k=8 random-effects meta-analysis (pooled Hedges' *g* = −0.49, 95% CI [−0.73, −0.26]; k=9 and *g* = −0.43 through v1.0.1, corrected in v1.1.0), the lab-stratified moderator analysis, the risk-of-bias assessments, and all reproduction code are publicly available at https://github.com/mikhaeelatefrizk/affect-labeling-review and permanently archived on Zenodo. Peer-reviewed journal submission is pending.
 
 ## 5. Named contact / team / organisation / funding / collaborators / conflicts
 
@@ -185,7 +185,7 @@ This protocol explicitly addresses three structural concerns identified in the a
 
 ## 30. Final report / publications
 
-**Preprint / working paper (released 2026-04-29).** The full ~14,000-word manuscript is at https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/manuscript/manuscript.md. Headline result: pooled Hedges' *g* = −0.49, 95% CI [−0.73, −0.26], from a random-effects meta-analysis of 8 peripheral-physiology effect sizes from 6 studies. Lab-stratified moderator analysis: *g* = −0.74 within the UCLA Lieberman/Craske axis (k = 5, I² = 0%); *g* = −0.23 in independent laboratories (k = 3, I² = 23.6%, CI crosses zero). These figures supersede the v1.0.1 values (*g* = −0.43; k = 9) — see CHANGELOG v1.1.0.
+**Preprint / working paper (released 2026-04-29).** The full ~10,500-word manuscript is at https://github.com/mikhaeelatefrizk/affect-labeling-review/blob/main/manuscript/manuscript.md. Headline result: pooled Hedges' *g* = −0.49, 95% CI [−0.73, −0.26], from a random-effects meta-analysis of 8 peripheral-physiology effect sizes from 6 studies. Lab-stratified moderator analysis: *g* = −0.74 within the UCLA Lieberman/Craske axis (k = 5, I² = 0%); *g* = −0.23 in independent laboratories (k = 3, I² = 23.6%, CI crosses zero). These figures supersede the v1.0.1 values (*g* = −0.43; k = 9) — see CHANGELOG v1.1.0.
 
 **Permanent archive (released 2026-05-10).** Zenodo v1.0.0, DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595).
 

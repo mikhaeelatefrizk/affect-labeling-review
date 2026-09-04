@@ -8,15 +8,15 @@ The random-effects meta-analysis of peripheral psychophysiology — the single q
 |---|---|
 | [`run_meta_analysis.py`](run_meta_analysis.py) | The analysis script. Pure Python (numpy, pandas, scipy, matplotlib). Runs in <2 seconds. Idempotent. |
 | [`extracted_effect_sizes.csv`](extracted_effect_sizes.csv) | The 8 effect sizes from 6 studies, with study identifier, year, lab, sample sizes, design, computed Hedges' *g*, standard error, variance, fixed-effect weight, and 95% CI. |
-| [`leave_one_out.csv`](leave_one_out.csv) | Sensitivity analysis: pooled estimate (and 95% CI) when each study is dropped in turn. Ranges from −0.38 to −0.51, all sign-stable. |
+| [`leave_one_out.csv`](leave_one_out.csv) | Sensitivity analysis: pooled estimate (and 95% CI) when each study is dropped in turn. Ranges from −0.59 (omitting Fitzpatrick 2019) to −0.45 (omitting Kircanski 2012's reappraisal contrast), all sign-stable. |
 | [`results_summary.txt`](results_summary.txt) | Plain-text summary of the primary, UCLA-only, and independent-only pooled estimates plus heterogeneity statistics and Egger's test. |
 
 ## Headline result
 
-Random-effects meta-analysis (DerSimonian-Laird τ²) of *k* = 8 effect sizes from 6 studies on peripheral psychophysiological response (skin conductance, heart rate, late positive potential):
+Random-effects meta-analysis (DerSimonian-Laird τ²) of *k* = 8 effect sizes from 6 studies on peripheral psychophysiological response (skin conductance, non-specific SCR frequency, heart rate, heart-rate variability):
 
 - **Pooled Hedges' *g* = −0.49, 95% CI [−0.73, −0.26], *p* < .001**
-- 95% prediction interval [−1.13, +0.27] **crosses zero** — a new study could plausibly observe an effect in either direction.
+- 95% prediction interval [−1.07, +0.08] **crosses zero** — a new study could plausibly observe an effect in either direction.
 - *I*² = 36.2%; τ² = 0.040
 
 Pre-specified lab-stratified moderator analysis:
@@ -32,7 +32,7 @@ The 0.52 g-unit gap between strata is the single most informative result in the 
 python meta-analysis/run_meta_analysis.py
 ```
 
-Output: regenerates the three CSVs and `results_summary.txt`, plus the forest and funnel plots in [`figures/`](../figures/). Byte-identical re-run on the pinned environment.
+Output: regenerates the two CSVs and `results_summary.txt`, plus the forest and funnel plots in [`figures/`](../figures/). Byte-identical re-run on the pinned environment.
 
 ## How to add a new study
 

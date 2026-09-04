@@ -49,7 +49,7 @@ make all
 9. Runs `scripts/validate_screening_log.py` → schema + reconciliation check
 10. Prints SHA-256 of every regenerated output
 
-`make verify` additionally asserts no diff against the committed versions for the byte-deterministic outputs (excludes `derived_corpus.csv` and `derived_screening_log.csv`, which legitimately drift over time).
+`make verify` runs the offline generators only (steps 2–5 above plus `scripts/build_all_references.py` and the validator — the same set CI runs) and then asserts no diff against the committed versions of the byte-deterministic tabular outputs: `meta-analysis/*.csv`, `meta-analysis/*.txt`, `prisma/prisma_counts.txt`, `prisma/prisma_counts.csv`, `prisma/prisma_counts.derived.txt`, `data/screening/included_papers.csv`, `data/screening/all_references.csv`. It neither regenerates nor gates `derived_corpus.csv`, `derived_screening_log.csv` and `data/QUALITY_REPORT.md`, which come from a live PubMed query and legitimately drift over time, and it does not gate figures (see below).
 
 ## Without `make`
 
@@ -109,7 +109,8 @@ After a clean run:
 make sha    # prints SHA-256 of every generated file
 git diff --exit-code -- 'meta-analysis/*.csv' 'meta-analysis/*.txt' \
   'prisma/prisma_counts.txt' 'prisma/prisma_counts.csv' \
-  'data/screening/included_papers.csv'
+  'prisma/prisma_counts.derived.txt' \
+  'data/screening/included_papers.csv' 'data/screening/all_references.csv'
 ```
 
 If `git diff` returns 0 (no output), your run reproduced the canonical bytes. If it returns 1 (diff present), inspect the diff and check:
@@ -118,7 +119,7 @@ If `git diff` returns 0 (no output), your run reproduced the canonical bytes. If
 2. Are dependency versions pinned? (`pip freeze | sort`)
 3. On Windows, did line endings differ? (`git config core.autocrlf` should be `true`).
 
-Figures (`figures/*.png`, `*.pdf`) are excluded from the byte-identical check because matplotlib version differences produce visually identical but byte-different output. The PNGs and PDFs in the repo were generated with matplotlib 3.8.2; on a different version you'll get different bytes but the same plots.
+Figures (`figures/*.png`, `*.pdf`) are excluded from the byte-identical check — by both CI and `make verify` — because PDF creation timestamps and font rendering differ across matplotlib builds and platforms, producing visually identical but byte-different output. The PNGs and PDFs in the repo were generated with matplotlib 3.8.2; on a different version you'll get different bytes but the same plots. The tabular inputs to every figure are what gets byte-checked.
 
 ---
 

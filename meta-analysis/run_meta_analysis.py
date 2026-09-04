@@ -244,6 +244,7 @@ ax.text(1.15, y_pool,
         f"{primary['g']:+.2f} [{primary['ci_lo']:+.2f}, {primary['ci_hi']:+.2f}]",
         va="center", fontsize=8, family="monospace", color="firebrick", weight="bold")
 plt.tight_layout()
+(outdir.parent / "figures").mkdir(exist_ok=True)
 plt.savefig(outdir.parent / "figures" / "forest_plot.png", dpi=200, bbox_inches="tight")
 plt.savefig(outdir.parent / "figures" / "forest_plot.pdf", bbox_inches="tight")
 plt.close()

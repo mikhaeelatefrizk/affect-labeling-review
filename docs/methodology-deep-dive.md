@@ -23,7 +23,7 @@ Three estimators were considered:
 I selected DL for the headline analysis because:
 
 - It is what the systematic-review literature has converged on for two decades (i.e., readers will know how to interpret the result).
-- With *k* = 9, REML and DL produce nearly identical results in this dataset (verified in the development environment).
+- With *k* = 8, REML and DL produce nearly identical results in this dataset (verified in the development environment).
 - DL's slight downward bias on τ² makes the headline I² and prediction interval *narrower*, which is the conservative direction for claiming heterogeneity is high.
 
 Sensitivity check using REML and PM is mentioned in the pre-registration; numerical agreement is within 0.005 g-units.
@@ -42,9 +42,9 @@ References: Higgins, Thompson, & Spiegelhalter (2009); Riley, Higgins, & Deeks (
 
 ## Why a lab-stratified moderator analysis?
 
-The motivating problem: approximately 30 of the 50 most-cited affect-labelling papers come from one laboratory cluster (UCLA Lieberman / Craske / Burklund / Niles / Kircanski / Tabibnia), or from close collaborators. This is a structural — not incidental — feature of the evidence base.
+The motivating problem: approximately 30 of the 50 most-cited affect-labelling papers (informal estimate; no citation-count table is committed) come from one laboratory cluster (UCLA Lieberman / Craske / Burklund / Niles / Kircanski / Tabibnia), or from close collaborators. This is a structural — not incidental — feature of the evidence base.
 
-A standard meta-regression (with `lab` as a moderator) would have been underpowered with k = 8 and a binary moderator. Instead, the protocol specified a *subgroup* analysis: pool the UCLA-axis studies separately from the independent-lab studies. This requires only that there be at least 2 studies in each subgroup (we had 5 and 4) and gives a directly interpretable answer: how much does the pooled estimate change when you exclude the originating-laboratory cluster?
+A standard meta-regression (with `lab` as a moderator) would have been underpowered with k = 8 and a binary moderator. Instead, the protocol specified a *subgroup* analysis: pool the UCLA-axis studies separately from the independent-lab studies. This requires only that there be at least 2 studies in each subgroup (we had 5 and 3) and gives a directly interpretable answer: how much does the pooled estimate change when you exclude the originating-laboratory cluster?
 
 The 0.52 g-unit gap (g = −0.74 vs. g = −0.23) is larger than virtually any moderator I could find in the published affect-labelling literature. It is consistent with structural author non-independence — a known concern in research-synthesis methodology (Stanley & Doucouliagos, 2017).
 
@@ -112,7 +112,7 @@ I chose (2) because the protocol-as-pre-registered captures *what was intended*,
 
 ---
 
-## Why is the "Independent labs" pooled estimate reported even though k = 4 is small?
+## Why is the "Independent labs" pooled estimate reported even though k = 3 is small?
 
 Because the lab-stratified moderator analysis is the *headline* result of the review. Reporting only the UCLA-axis subgroup would amount to saying "the effect is robust within UCLA studies"; reporting only the pooled k = 8 would mask the lab dependence. The full picture requires reporting both subgroups, even at the cost of small-k inferential limits in the independent-labs subgroup.
 
@@ -128,4 +128,4 @@ For the meta-analysis itself, the foundational paper is treated as one study amo
 
 ---
 
-*This document is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.0.0 (May 2026).*
+*This document is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.1.1 (September 2026).*

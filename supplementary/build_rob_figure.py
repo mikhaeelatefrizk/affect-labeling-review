@@ -9,6 +9,10 @@ studies = [
     ("Niles 2015",                "RCT", ["L","S","L","L","S"], "S"),
     ("Plaisted 2022",             "RCT", ["L","L","L","L","L"], "L"),
     ("Burklund 2024 (PTSD)",      "NRSI",["H","H","S","S","H"], "H"),
+    # Added in v1.1.1 to close a coverage gap: both are meta-analysed but had
+    # no RoB row. Formal ROBINS-I assessment pending; "N" = Not assessed.
+    ("Fitzpatrick 2019",          "NRSI",["N","N","N","N","N"], "N"),
+    ("Matejka 2013",              "NRSI",["N","N","N","N","N"], "N"),
     ("Lieberman 2007",            "fMRI",["M","L","L","L","M"], "M"),
     ("Hariri 2000",               "fMRI",["M","L","L","L","M"], "M"),
     ("Hariri 2003",               "fMRI",["L","L","L","L","L"], "L"),
@@ -29,12 +33,13 @@ domains = ["D1\nRandomization /\nselection",
            "Overall"]
 
 color = {"L": "#2ca02c", "S": "#ffcc00", "M": "#ff9900",
-         "H": "#d62728", "-": "#bbbbbb"}
-symbol = {"L": "+", "S": "-", "M": "-", "H": "x", "-": "?"}
+         "H": "#d62728", "-": "#bbbbbb", "N": "#7f7f7f"}
+symbol = {"L": "+", "S": "-", "M": "-", "H": "x", "-": "?", "N": "?"}
 
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.set_xlim(0, len(domains) + 4.5)
-ax.set_ylim(0, len(studies) + 1.5)
+# Extra row at the bottom for the two-line legend.
+ax.set_ylim(0, len(studies) + 2.2)
 ax.invert_yaxis()
 ax.axis("off")
 
@@ -55,13 +60,16 @@ for i, (name, design, doms, overall) in enumerate(studies):
 
 legend_y = len(studies) + 1.0
 legend_items = [("L", "Low risk"), ("S", "Some concerns"),
-                ("M", "Moderate"), ("H", "High risk"), ("-", "Not applicable")]
+                ("M", "Moderate"), ("H", "High risk"), ("-", "Not applicable"),
+                ("N", "Not assessed")]
+# Six entries in two rows of three so nothing runs past the right edge.
 for k, (code, lab) in enumerate(legend_items):
-    cx = col_offset + k * 1.6
-    c = Circle((cx, legend_y), 0.22, facecolor=color[code],
+    cx = col_offset + (k % 3) * 2.2
+    cy = legend_y + (k // 3) * 0.7
+    c = Circle((cx, cy), 0.22, facecolor=color[code],
                edgecolor="black", linewidth=0.7)
     ax.add_patch(c)
-    ax.text(cx + 0.35, legend_y, lab, va="center", fontsize=8)
+    ax.text(cx + 0.35, cy, lab, va="center", fontsize=8)
 
 plt.title("Risk of bias assessment (RoB 2 / ROBINS-I / NRSI synthesis)",
           fontsize=11, weight="bold")

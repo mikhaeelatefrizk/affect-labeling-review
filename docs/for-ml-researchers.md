@@ -27,7 +27,7 @@ The dataset is **positive-unlabelled (PU)**, not fully labelled. This is non-neg
 - **`decision == "include"` rows (n = 14):** confirmed positives. Each row matched against one of the 22 canonical-identifiable includes by DOI (n=13) or title-fuzzy match (Jaccard ≥ 0.85, n=1).
 - **`decision == "unknown"` rows (n = 3,878):** unlabelled. Most are true negatives, but **approximately 78 of the 100 canonical included papers were not enumerated in structured form** in the original review (they appear in the manuscript prose without per-paper extraction). A subset of those 78 papers may be in the PubMed-derived corpus and are therefore mislabelled as "unknown" when they are in fact "include." Upper-bound noise rate on the unknown class: ~78 / 3,878 ≈ 2%.
 
-**Why this happened:** the original review preserved aggregate PRISMA counts (canonical) and the per-paper records for the meta-analysed subset (k = 8 effect sizes from 6 studies) and the risk-of-bias table (19 studies; 4 overlap with psychophys), but did not preserve a structured per-paper inclusion log for the full 100 included studies. The honest, non-fabricated reconstruction is what you have.
+**Why this happened:** the original review preserved aggregate PRISMA counts (canonical) and the per-paper records for the meta-analysed subset (k = 8 effect sizes from 6 studies) and the risk-of-bias table (21 studies; 6 overlap with psychophys), but did not preserve a structured per-paper inclusion log for the full 100 included studies. The honest, non-fabricated reconstruction is what you have.
 
 **Implications for training:**
 
@@ -144,4 +144,4 @@ If you build any of the above on this corpus and publish, please open an issue s
 
 ---
 
-*This guide is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.0.0 (May 2026).*
+*This guide is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.1.1 (September 2026).*

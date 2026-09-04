@@ -117,13 +117,15 @@ git checkout v1.0.0
 
 ---
 
-## 8. CI badge shows "failing" on the repo's main page
+## 8. CI reports "Outputs differ from committed"
 
-**Symptom:** Red CI badge.
+**Symptom:** The `reproduce` job in [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) fails at the step "Assert that committed outputs match regenerated outputs".
 
-**Cause:** As of v1.0.0 (May 2026), the maintainer's GitHub account has a temporary platform-level billing flag preventing GitHub Actions from running. The workflow file itself is correct and runs successfully on any other account.
+**Background:** CI runs automatically on every push to `main` and on every pull request (the auto-trigger was temporarily disabled around v1.0.0 because of an account-level billing flag; it was re-enabled in May 2026, commit `4f6ba07`). The job regenerates the meta-analysis, PRISMA, included-list and all-references outputs and byte-compares `meta-analysis/*.csv`, `meta-analysis/*.txt`, `prisma/prisma_counts.txt`, `prisma/prisma_counts.csv`, `prisma/prisma_counts.derived.txt`, `data/screening/included_papers.csv` and `data/screening/all_references.csv` against the committed versions. Figures are not compared.
 
-**Fix:** Not a code issue. The CI badge has been removed from the README in v1.0.0 to avoid the misleading "failing" indicator until the billing block is lifted. The auto-trigger has been disabled in [`.github/workflows/ci.yml`](../.github/workflows/ci.yml). To verify locally, use `make verify` or follow [`reproducibility-guide.md`](reproducibility-guide.md).
+**Cause:** One of those tabular outputs was edited by hand, or an input (e.g. `run_meta_analysis.py`, `references.bib`, the manuscript) was changed without regenerating the outputs.
+
+**Fix:** Run `make verify` locally — it executes the same generators and the same `git diff` as CI — and commit the regenerated files it flags. If the diff is a line-ending change only, check that the file is LF-terminated (`.gitattributes` enforces `eol=lf` on every gated file).
 
 ---
 
@@ -169,4 +171,4 @@ The reproducibility issue template walks you through this.
 
 ---
 
-*This troubleshooting guide is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.0.0 (May 2026).*
+*This troubleshooting guide is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.1.1 (September 2026).*

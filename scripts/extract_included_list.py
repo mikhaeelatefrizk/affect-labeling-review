@@ -4,7 +4,9 @@ Reads authoritative source-of-truth lists from:
   - meta-analysis/run_meta_analysis.py    (the psychophysiology studies; 8 effect sizes
     enter the synthesis from v1.1.0, while all 9 canonical contributions remain
     included papers -- McRae 2010 is an included paper excluded from the synthesis)
-  - supplementary/build_rob_figure.py     (the 19 studies in the RoB summary)
+  - supplementary/risk_of_bias.csv        (the 21 rows of the RoB table;
+    Fitzpatrick 2019 and Matejka 2013 were added there in v1.1.1 as
+    "Not assessed" rows and were already listed here as psychophysiology)
 
 Cross-references each entry against `references.bib` to enrich with DOI,
 title, authors, and journal.

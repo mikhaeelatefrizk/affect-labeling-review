@@ -8,7 +8,7 @@ The instruments used:
 - **ROBINS-I** (Sterne et al., 2016, *BMJ*, 355, i4919) for non-randomised intervention studies, with seven domains; collapsed to five for compactness.
 - **Adapted NRSI tool** for within-subjects experimental designs (no validated tool exists for AL within-subjects fMRI), focusing on order/fatigue confounding, measurement, and reporting.
 
-Ratings: **L** = Low risk · **S** = Some concerns · **M** = Moderate · **H** = High risk · **−** = Not applicable.
+Ratings, as the strings actually used in `risk_of_bias.csv`: **Low** · **Some concerns** · **Moderate** · **High** · **N/A** (not applicable) · **Not assessed** (row added without a formal assessment; see the v1.1.1 note below). The single-letter codes used in the section headings and in `build_rob_figure.py` (L / S / M / H / − / N) are display abbreviations of those strings, not the values stored in the CSV.
 
 ---
 
@@ -44,7 +44,7 @@ Ratings: **L** = Low risk · **S** = Some concerns · **M** = Moderate · **H** 
 ### Plaisted, Waite, & Creswell (2022) · *Behaviour Research and Therapy*
 
 - **D1–D5: All L.**
-- **Overall: L.** This is the only adequately-powered adolescent RCT in the literature, pre-registered, with faithful reporting of a **null** finding on heart rate, self-rated anxiety, and observer-rated anxiety. It is the highest-quality study in the body of work and an important counterweight to the UCLA-axis affirmative literature.
+- **Overall: L.** This is the only adequately-powered adolescent RCT in the literature, with faithful reporting of a **null** finding on heart rate, self-rated anxiety, and observer-rated anxiety. It is the highest-quality study in the body of work and an important counterweight to the UCLA-axis affirmative literature.
 
 ---
 
@@ -58,6 +58,16 @@ Ratings: **L** = Low risk · **S** = Some concerns · **M** = Moderate · **H** 
 - **D4 Measurement: S.** Self-report and clinician-rated outcomes are not blinded to condition.
 - **D5 Reporting: H.** Selective focus on within-subject pre-post effect sizes; selective emphasis given that the study is also flagged for **commercial conflict of interest** — the lead author is an independent contractor at NeuroGen Technologies Inc., a private company developing affect-labelling-based PTSD interventions.
 - **Overall: H.** This study is included for narrative completeness in the clinical-applications section but should not be treated as evidence for affect labelling's clinical efficacy in PTSD.
+
+### Fitzpatrick, Ip, Krantz, Zeifman, & Kuo (2019) · *Behaviour Research and Therapy*
+
+- **D1–D5: Not assessed.** Overall: **Not assessed.**
+- Non-randomised within-subject experiment (healthy-control skin-conductance contrast, *n* = 30). The study contributes one effect size to the meta-analysis and enters the independent-lab stratum, but through v1.1.0 it had no row in `risk_of_bias.csv`. The row was added in v1.1.1 to close that coverage gap; a formal ROBINS-I assessment is pending and no domain judgment has been invented in the meantime.
+
+### Matejka, Kazzer, Seehausen, Bajbouj, Klann-Delius, Menninghaus, Jacobs, Heekeren, & Prehn (2013) · *Frontiers in Psychology*
+
+- **D1–D5: Not assessed.** Overall: **Not assessed.**
+- Non-randomised within-subject experiment (emotion- vs. fact-verbalisation skin-conductance contrast, *n* = 23). As with Fitzpatrick (2019), the study is meta-analysed and enters the independent-lab stratum but had no risk-of-bias row through v1.1.0. Added in v1.1.1; formal ROBINS-I assessment pending.
 
 ---
 
@@ -163,8 +173,8 @@ Ratings: **L** = Low risk · **S** = Some concerns · **M** = Moderate · **H** 
 
 - For **journal peer reviewers**: this is the source of truth for per-study RoB rationales. The CSV is machine-readable; this markdown is the reasoning.
 - For **second-coder re-screeners**: please contest any judgment by opening a [data correction issue](https://github.com/mikhaeelatefrizk/affect-labeling-review/issues/new?template=data_correction.yml). Provide the alternative judgment with supporting evidence; the rationale here will be updated and the CSV regenerated.
-- For **ML researchers**: the per-domain codes (`L`, `S`, `M`, `H`) are stable categorical labels suitable for downstream modelling (e.g., predicting RoB from full-text features).
+- For **ML researchers**: the per-domain values in the CSV (`Low`, `Some concerns`, `Moderate`, `High`, `N/A`, `Not assessed`) are stable categorical labels suitable for downstream modelling (e.g., predicting RoB from full-text features). Treat `Not assessed` as missing, not as a judgment.
 
 ---
 
-*This document is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.0.0 (May 2026).*
+*This document is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.1.1 (September 2026).*

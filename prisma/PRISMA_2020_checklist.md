@@ -59,7 +59,7 @@ This checklist documents how each PRISMA 2020 item is reported in the open-resea
 | 20a | For each synthesis, briefly summarise the characteristics and risk of bias among contributing studies. | `manuscript/manuscript.md` §3.3 | Lab affiliation, design, sample size, RoB rating discussed for the k=8 synthesis. |
 | 20b | Present results of all statistical syntheses conducted. If meta-analysis was done, present for each the summary estimate and its precision (e.g., confidence/credible interval) and measures of statistical heterogeneity. If comparing groups, describe the direction of the effect. | `manuscript/manuscript.md` §3.3; `meta-analysis/results_summary.txt` | Pooled *g* = −0.49 [−0.73, −0.26], *p* < .001, *I*² = 36.2%, τ² = 0.040, 95% PI [−1.07, +0.08]. |
 | 20c | Present results of all investigations of possible causes of heterogeneity among study results. | `manuscript/manuscript.md` §3.3, §4.3; `meta-analysis/results_summary.txt` | UCLA-only: *g* = −0.74 [−1.02, −0.47], *I*² = 0%. Independent-only: *g* = −0.23 [−0.51, +0.05], *I*² = 23.6%. |
-| 20d | Present results of all sensitivity analyses conducted to assess the robustness of the synthesized results. | `meta-analysis/leave_one_out.csv` | Leave-one-out CSV shows the pooled *g* range from −0.38 (drop Kircanski-vs-reappraisal) to −0.51 (drop Plaisted) — all sign-stable. |
+| 20d | Present results of all sensitivity analyses conducted to assess the robustness of the synthesized results. | `meta-analysis/leave_one_out.csv` | Leave-one-out CSV shows the pooled *g* range from −0.59 (drop Fitzpatrick 2019) to −0.45 (drop Kircanski-vs-reappraisal) — all sign-stable. |
 | 21 | Present assessments of risk of bias due to missing results (arising from reporting biases) for each synthesis assessed. | `manuscript/manuscript.md` §3.3; `figures/funnel_plot.png/.pdf` | Egger's intercept = −4.55, *p* = .16. Funnel-plot inspection and discussion in §3.3. |
 | 22 | Present assessments of certainty (or confidence) in the body of evidence for each outcome assessed. | `manuscript/manuscript.md` §4.1, §4.2 | GRADE-style narrative: peripheral-physiology effect "moderate certainty within paradigm; low certainty across paradigms." |
 
@@ -106,4 +106,4 @@ When the screening corpus, included-papers list, or risk-of-bias judgments are a
 
 ---
 
-*This checklist is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.0.0 (May 2026).*
+*This checklist is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.1.1 (September 2026).*

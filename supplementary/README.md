@@ -6,7 +6,7 @@ Risk-of-bias assessments, the figure that visualises them, and the per-study rea
 
 | File | What it is |
 |---|---|
-| [`risk_of_bias.csv`](risk_of_bias.csv) | 19 rows × 9 columns. Per-study risk-of-bias ratings across 5 domains plus an overall judgment, plus a key-concerns narrative column. Covers RCTs, NRSI, within-subjects fMRI, and four meta-analyses synthesised narratively. |
+| [`risk_of_bias.csv`](risk_of_bias.csv) | 21 rows × 9 columns. Per-study risk-of-bias ratings across 5 domains plus an overall judgment, plus a key-concerns narrative column. Covers RCTs, NRSI, within-subjects fMRI, and four meta-analyses synthesised narratively. Two rows (Fitzpatrick 2019, Matejka 2013) were added in v1.1.1 with every domain `Not assessed`; a formal assessment is pending. |
 | [`build_rob_figure.py`](build_rob_figure.py) | Generator script for the traffic-light summary figure. |
 | [`risk_of_bias_explanation.md`](risk_of_bias_explanation.md) | Per-study, per-domain rationale for every RoB judgment in the CSV. The reasoning behind the codes. **The CSV is the data; this markdown is the why.** |
 
@@ -31,8 +31,11 @@ The choice of three-tools-plus-narrative is justified in [`docs/methodology-deep
 | `M` | Moderate |
 | `H` | High risk |
 | `−` (em-dash) | Not applicable |
+| `N` | Not assessed (row present, formal assessment pending) |
 
-Symbols in the figure: `+` (Low) / `−` (Some/Moderate) / `x` (High) / `?` (N/A).
+These are the display codes used in the figure script and the explanation headings. The CSV itself stores the full strings `Low`, `Some concerns`, `Moderate`, `High`, `N/A`, `Not assessed`.
+
+Symbols in the figure: `+` (Low) / `−` (Some/Moderate) / `x` (High) / `?` (N/A, grey; Not assessed, darker grey).
 
 ## How to re-run
 

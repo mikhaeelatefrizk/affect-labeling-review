@@ -6,8 +6,8 @@ regenerated today by re-running the PROSPERO query against PubMed.
 Drift is expected because PubMed continues to grow.
 
 Records (canonical, identified-databases) : 1842
-Records (derived, total in corpus)        : 3902
+Records (derived, total in corpus)        : 3892
 Included (canonical, all subsets)         : 100
-Included (derived, label=include)         : 0
+Included (derived, label=include)         : 14
 Excluded (canonical, ti-ab + full-text)   : 1471
 Excluded (derived, label=exclude)         : 0
