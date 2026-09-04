@@ -1,7 +1,9 @@
 """Extract the included-papers list from the canonical analysis sources.
 
 Reads authoritative source-of-truth lists from:
-  - meta-analysis/run_meta_analysis.py    (the 7 psychophysiology studies, k=9 effect sizes)
+  - meta-analysis/run_meta_analysis.py    (the psychophysiology studies; 8 effect sizes
+    enter the synthesis from v1.1.0, while all 9 canonical contributions remain
+    included papers -- McRae 2010 is an included paper excluded from the synthesis)
   - supplementary/build_rob_figure.py     (the 19 studies in the RoB summary)
 
 Cross-references each entry against `references.bib` to enrich with DOI,
@@ -40,7 +42,9 @@ OUT_CSV = REPO_ROOT / "data" / "screening" / "included_papers.csv"
 # ---------------------------------------------------------------------------
 INCLUDED = [
     # (bibtex_key, subset, source_in_repo)
-    # --- Psychophysiology meta-analysis subset (k=9 effect sizes, 7 unique studies) ---
+    # --- Psychophysiology subset: 9 canonical included contributions, 7 unique
+    # studies. 8 enter the synthesis from v1.1.0; McRae 2010 stays an included
+    # paper but is excluded from the meta-analysis. ---
     ("kircanski2012",  "psychophysiology_meta_analysis", "meta-analysis/run_meta_analysis.py + supplementary/build_rob_figure.py"),
     ("tabibnia2008",   "psychophysiology_meta_analysis", "meta-analysis/run_meta_analysis.py + supplementary/build_rob_figure.py"),
     ("niles2015",      "psychophysiology_meta_analysis", "meta-analysis/run_meta_analysis.py + supplementary/build_rob_figure.py"),

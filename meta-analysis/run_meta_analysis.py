@@ -12,24 +12,35 @@ from scipy import stats
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# Six of the nine Cohen's d values are extracted from published reports
-# (Kircanski 2012 reports d directly). Where only F or t was available, d was
-# computed via Borenstein, Hedges, Higgins, & Rothstein (2009) conversions.
-# Hedges' small-sample correction J = 1 - 3/(4*df - 1) converts d to g for
-# synthesis. Negative values indicate AL produced LOWER physiological arousal.
+# All eight Cohen's d values are extracted from published reports (Kircanski
+# 2012 reports d directly). Where only F, t, or condition means and SDs were
+# available, d was computed via Borenstein, Hedges, Higgins, & Rothstein (2009)
+# conversions. Hedges' small-sample correction J = 1 - 3/(4*df - 1) converts d
+# to g for synthesis. Negative values indicate AL produced LOWER physiological
+# arousal. Every row carries `derivation="extracted"`; the field exists so that
+# any future imputed value has to declare itself.
 #
-# THREE VALUES ARE NOT EXTRACTED. Plaisted 2022, McRae 2010 and Fitzpatrick
-# 2019 carry round stand-in values that encode "the report describes a null"
-# rather than a standardized mean difference computed from reported statistics.
-# Each such row is marked `derivation="imputed_null"`; extracted rows are
-# marked `derivation="extracted"`. This distinction is material: the three
-# imputed rows carry roughly 70% of the fixed-effect weight of the
-# independent-lab stratum, which is what produces the lab-stratified gap
-# reported in the manuscript. Treat that gap as provisional until these three
-# are replaced with extracted values or dropped. See docs/ for the audit.
+# CORRECTION HISTORY. Through v1.0.1 this list carried nine rows, three of them
+# (Plaisted 2022, McRae 2010, Fitzpatrick 2019) round stand-in values encoding
+# "the report describes a null" rather than extracted standardized mean
+# differences, while the header claimed all values were extracted. Those three
+# carried ~70% of the fixed-effect weight of the independent-lab stratum, which
+# is what produces the lab-stratified contrast. They have been resolved:
 #
-# `note` records the outcome and, for imputed rows, what is known about the
-# source report.
+#   Plaisted 2022    0.00  -> -0.220  extracted from Table 2 (n corrected
+#                                     20/20 -> 27/27; three-arm RCT, N=81)
+#   Fitzpatrick 2019 -0.10 -> -0.036  extracted from Table 3 (n corrected
+#                                     15/15 -> 30 within-subject)
+#   McRae 2010       +0.10 -> DROPPED
+#
+# McRae 2010 is excluded rather than estimated. The paper is closed access with
+# no repository copy, so no statistic could be recovered, and the contrast as
+# previously coded ("subjective AL vs. passive") appears not to exist in it:
+# the design compares subjective against OBJECTIVE labelling across four
+# exposure durations, and the reported finding is an interaction rather than a
+# labelling-versus-control mean difference. Coding an unreadable paper against
+# a contrast it may not contain is not defensible, so it is documented here as
+# an exclusion. It can be reinstated if the full text is obtained.
 
 studies = [
     dict(study="Kircanski 2012 (vs. reappraisal)", year=2012, lab="UCLA",
@@ -49,35 +60,31 @@ studies = [
     dict(study="Niles 2015 (SCR-NS, recovery)", year=2015, lab="UCLA",
          n1=20, n2=20, d=-0.691, design="between", derivation="extracted",
          note="NS-SCR during recovery; reconstructed from t,df"),
-    dict(study="Plaisted 2022 (HR, adolescents, RCT)", year=2022,
-         lab="Birmingham/Reading/Oxford", n1=20, n2=20, d=0.0, design="between",
-         derivation="imputed_null",
-         note="NOT EXTRACTED. Stand-in for 'no significant effect'. The paper "
-         "reports full HR means/SDs (Table 2) and omnibus F/eta-sq (Table 3), so a "
-         "real SMD IS recoverable and is NOT 0.0: depending on the contrast taken "
-         "(anticipation vs. recovery HR, raw follow-up vs. change score) it ranges "
-         "about -0.50 to +0.36. Arm n is wrong too: three-arm trial, n=27 per arm "
-         "(N=81), not 20/20. Acknowledgements thank M. Craske, which bears on the "
-         "lab-independence moderator."),
-    dict(study="McRae 2010 (subjective AL, within)", year=2010,
-         lab="Arizona/Stanford", n1=22, n2=22, d=0.10, design="within",
-         derivation="imputed_null",
-         note="NOT EXTRACTED. Stand-in for 'n.s. effect'. Closed access, no OA copy "
-         "located, so no statistic could be recovered; the abstract reports no N, F, "
-         "t, p or effect size. The coded contrast is also doubtful: the design "
-         "compares subjective vs. OBJECTIVE labelling across exposure durations and "
-         "the headline finding is an interaction, not AL vs. passive. Resolve from "
-         "the PDF or drop."),
+    dict(study="Plaisted 2022 (HR recovery, adolescents, RCT)", year=2022,
+         lab="Birmingham/Reading/Oxford", n1=27, n2=27, d=-0.220, design="between",
+         derivation="extracted",
+         note="Post-speech (recovery) HR at 1-week follow-up, affect-label vs. "
+         "control, from the Table 2 means/SDs: 90.2 (9.4) vs. 92.2 (8.8), n=27 per "
+         "arm. Recovery window chosen to match Niles 2015. Three-arm RCT, N=81; the "
+         "positive-coping-statements arm is not part of this contrast. LIMITATION: "
+         "arms are not balanced at pre-test (the affect-label arm starts ~3-4 bpm "
+         "high), so the pre->1wk change score gives d = -0.49 instead; that is "
+         "reported as a sensitivity analysis, not the primary value, because its SE "
+         "needs a pre-post correlation the paper does not report. The "
+         "acknowledgements thank M. Craske, which bears on the lab-independence "
+         "moderator."),
     dict(study="Fitzpatrick 2019 (SCR, healthy controls)", year=2019,
-         lab="Toronto/York", n1=15, n2=15, d=-0.10, design="within",
-         derivation="imputed_null",
-         note="NOT EXTRACTED. Stand-in for 'small n.s. effect'. No HC-only "
-         "inferential test for SCR exists in the paper (no post-hoc was run: the "
-         "condition x group interaction was n.s.), but Table 3 gives HC means/SDs "
-         "from which d = -0.036 is computable. n is wrong too: the HC group is n=30 "
-         "within-subject, not 15/15, roughly doubling the weight. SCR is an "
-         "overdispersed count modelled by negative-binomial GEE, so an SMD on these "
-         "descriptives is a crude summary."),
+         lab="Toronto/York", n1=30, n2=30, d=-0.036, design="within",
+         derivation="extracted",
+         note="Healthy-control emotion-induction SCR, label vs. control, computed "
+         "from the Table 3 HC means/SDs averaged over the two script types: label "
+         "3.095 vs. control 3.205, pooled SD 3.020, n=30 within-subject. The paper "
+         "reports no HC-only inferential test (no post-hoc was run because the "
+         "condition x group interaction was n.s.), so this comes from the "
+         "descriptives. LIMITATION: SCR here is an overdispersed count per 30 s "
+         "epoch (SD > M) which the authors modelled with a negative-binomial GEE "
+         "adjusting for baseline SCR, dissociation and alexithymia; an SMD on the "
+         "raw descriptives is a crude summary of that model."),
     dict(study="Matejka 2013 (emotion-verb. vs. fact, neg)", year=2013,
          lab="Berlin", n1=23, n2=23, d=-0.502, design="within",
          derivation="extracted",

@@ -14,7 +14,7 @@ exclusion_breakdown,duplicate_sample,6,Duplicate sample of an already-included s
 exclusion_breakdown,insufficient_data_for_extraction,36,Insufficient data to extract or compute Hedges g
 included,total,100,Total included in qualitative and quantitative synthesis
 included,subset_neuroimaging_neurostim,42,Neuroimaging and neurostimulation studies (narrative synthesis)
-included,subset_psychophysiology_meta_analysis,9,"Psychophysiology subset (random-effects meta-analysis). NB: this count is 9 effect-size contributions from 7 unique studies — Kircanski 2012 contributes 3 comparator contrasts; the other 6 studies each contribute one effect size."
+included,subset_psychophysiology_meta_analysis,9,"Psychophysiology subset (random-effects meta-analysis). NB: this count is 9 effect-size contributions from 7 unique studies — Kircanski 2012 contributes 3 comparator contrasts; the other 6 studies each contribute one effect size. This is the count INCLUDED IN THE REVIEW and is part of the 100 total. From v1.1.0 the SYNTHESIS carries 8 of these 9: McRae 2010 remains an included paper but was excluded from the meta-analysis as unrecoverable (closed access, and the coded contrast appears absent from the paper). See CHANGELOG v1.1.0."
 included,subset_behavioral_self_report,28,Behavioral and self-report studies (narrative synthesis)
 included,subset_clinical_patient_populations,12,Clinical and patient populations (narrative synthesis)
 included,subset_prior_meta_analyses,9,Existing coordinate-based and other meta-analyses (synthesized narratively)

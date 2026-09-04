@@ -13,18 +13,20 @@ This repository is the full open-research package for a systematic review and ra
 
 ## Headline result
 
-Random-effects meta-analysis of nine peripheral-physiology effect sizes from seven studies (not seven independent studies: Kircanski 2012 contributes three of the nine, and three of the nine effect sizes are imputed nulls rather than extracted values):
+Random-effects meta-analysis of eight peripheral-physiology effect sizes from six studies. Kircanski 2012 contributes three of the eight, so the effect sizes are not independent of one another:
 
-- **Pooled Hedges' g = −0.43, 95% CI [−0.68, −0.18], p < .001**
-- 95% prediction interval [−1.13, +0.27] **crosses zero**
-- I² = 48.3%, τ² = 0.070
+- **Pooled Hedges' g = −0.49, 95% CI [−0.73, −0.26], p < .001**
+- 95% prediction interval [−1.07, +0.08] **crosses zero**
+- I² = 36.2%, τ² = 0.040
 
 Pre-specified lab-stratified moderator analysis:
 
 - **UCLA Lieberman/Craske axis only:** g = **−0.74**, 95% CI [−1.02, −0.47], k = 5, I² = 0%
-- **Independent laboratories only:** g = **−0.13**, 95% CI [−0.41, +0.14], k = 4, I² = 27.8% — non-significant; CI crosses zero
+- **Independent laboratories only:** g = **−0.23**, 95% CI [−0.51, +0.05], k = 3, I² = 23.6% — non-significant; CI crosses zero
 
-The 0.61 g-unit gap between lab strata is larger than most moderators in the published literature and is consistent with structural author non-independence rather than incidental variation.
+The 0.52 g-unit gap between lab strata is larger than most moderators in the published literature and is consistent with structural author non-independence rather than incidental variation.
+
+> **These figures were corrected in v1.1.0.** Through v1.0.1 the review reported g = −0.43 and a 0.61 gap across nine effect sizes. Three of those nine (Plaisted 2022, McRae 2010, Fitzpatrick 2019) were round stand-in values encoding "the report describes a null" rather than extracted effect sizes, and they carried most of the weight of the independent-lab stratum. Two have since been extracted from the source tables and one dropped as unrecoverable. **Egger's test also crosses significance under the corrected set (p = .047, was p = .164)**, so small-study bias is now a live concern rather than a suspicion. See the [CHANGELOG](CHANGELOG.md).
 
 ## For data scientists and ML researchers
 
@@ -214,7 +216,7 @@ The Burklund et al. (2024) PTSD pilot trial is flagged for a **commercial confli
 1. Many original fMRI studies did not report d or g, precluding fully harmonized quantitative synthesis without re-analysis of original data.
 2. Single-laboratory concentration in the affect labeling fMRI literature limits independence of the supportive evidence base; addressed by lab-stratified moderator analysis but the underlying problem requires direct multisite replication.
 3. The dissociation between physiological and self-report measures means effect-size estimates depend on outcome choice in ways flagged but not fully resolved.
-4. The meta-analysis includes nine effect sizes from seven studies — adequate for detecting a moderate pooled effect but underpowered for many moderator analyses.
+4. The meta-analysis includes eight effect sizes from six studies — adequate for detecting a moderate pooled effect but underpowered for many moderator analyses.
 5. Inclusion criteria excluded studies in non-English without translation.
 6. **Screening was performed by a single coder.** Inter-rater agreement statistics are not available. The derived screening log (`data/screening/derived_screening_log.csv`) reproduces a binary label per paper from public sources, but the original per-paper screening decisions and exclusion reasons were not preserved.
 

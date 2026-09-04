@@ -72,9 +72,9 @@ Terms are grouped by topic and listed alphabetically within each group.
 
 **95% prediction interval (PI).** The interval into which the true effect of a *new* study is expected to fall, with 95% probability under the random-effects model. Wider than the CI because it incorporates between-study heterogeneity. A PI that crosses zero means a new study could plausibly observe an effect in either direction.
 
-**P-curve.** A distribution of *p*-values from a body of studies, used to detect publication bias and *p*-hacking. Not run in this review (k = 9 is too small).
+**P-curve.** A distribution of *p*-values from a body of studies, used to detect publication bias and *p*-hacking. Not run in this review (k = 8 is too small).
 
-**PET-PEESE.** Two regression-based small-study-bias adjustments. Not run on k = 9.
+**PET-PEESE.** Two regression-based small-study-bias adjustments. Not run on k = 8.
 
 **Pooled effect size.** The summary estimate from a meta-analysis, weighted by precision (1/variance for fixed-effect; 1/(variance + τ²) for random-effects).
 
@@ -104,7 +104,7 @@ Terms are grouped by topic and listed alphabetically within each group.
 
 ## Project-specific terms
 
-**Canonical-identifiable include.** A study that I can confidently identify as one of the 100 canonical includes, because it is enumerated in structured form in either `meta-analysis/run_meta_analysis.py` (the k = 9 effect sizes) or `supplementary/build_rob_figure.py` (the 19 RoB-assessed studies). Fewer than 100 because the original review preserved per-paper structure only for the meta-analysed and RoB-assessed subsets.
+**Canonical-identifiable include.** A study that I can confidently identify as one of the 100 canonical includes, because it is enumerated in structured form in either `meta-analysis/run_meta_analysis.py` (the 8 synthesised effect sizes, plus McRae 2010 which remains an included paper) or `supplementary/build_rob_figure.py` (the 19 RoB-assessed studies). Fewer than 100 because the original review preserved per-paper structure only for the meta-analysed and RoB-assessed subsets.
 
 **Concept DOI vs. version DOI.** Zenodo issues two DOIs per archived release: a concept DOI (e.g., 10.5281/zenodo.20109595) that always resolves to the latest version, and a version DOI (e.g., 10.5281/zenodo.20109596) that points at one specific version. Use the concept DOI in citations unless the version is load-bearing.
 
@@ -112,7 +112,7 @@ Terms are grouped by topic and listed alphabetically within each group.
 
 **Derived screening log.** The derived corpus joined against the canonical-identifiable include list, with each row tagged `decision = "include"` or `decision = "unknown"`. This is the file ML researchers train on.
 
-**Lab-stratified analysis.** A pre-specified moderator analysis dividing the meta-analytic studies by laboratory affiliation: UCLA Lieberman/Craske axis (and close collaborators) vs. independent laboratories. The headline finding is a 0.61 g-unit gap between the two strata (g = −0.74 vs. g = −0.13).
+**Lab-stratified analysis.** A pre-specified moderator analysis dividing the meta-analytic studies by laboratory affiliation: UCLA Lieberman/Craske axis (and close collaborators) vs. independent laboratories. The headline finding is a 0.52 g-unit gap between the two strata (g = −0.74 vs. g = −0.23).
 
 **UCLA axis.** Shorthand for the Lieberman / Craske / Burklund / Niles / Kircanski / Tabibnia laboratory cluster at UCLA. Approximately 30 of the 50 most-cited affect-labelling papers come from this axis or close collaborators.
 

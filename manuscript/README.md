@@ -21,7 +21,7 @@ If submitting to a journal that requires a specific format (Word, LaTeX), conver
 
 | In the manuscript | Authoritative file in the repo |
 |---|---|
-| Headline pooled effect (g = −0.43) | [`meta-analysis/results_summary.txt`](../meta-analysis/results_summary.txt) |
+| Headline pooled effect (g = −0.49) | [`meta-analysis/results_summary.txt`](../meta-analysis/results_summary.txt) |
 | §3.1 PRISMA flow numbers | [`prisma/prisma_counts.txt`](../prisma/prisma_counts.txt) + [`prisma/prisma_counts.csv`](../prisma/prisma_counts.csv) |
 | §2.7 meta-analytic methods | [`meta-analysis/run_meta_analysis.py`](../meta-analysis/run_meta_analysis.py) |
 | §2.6 Risk of bias | [`supplementary/risk_of_bias.csv`](../supplementary/risk_of_bias.csv) + [`supplementary/risk_of_bias_explanation.md`](../supplementary/risk_of_bias_explanation.md) |

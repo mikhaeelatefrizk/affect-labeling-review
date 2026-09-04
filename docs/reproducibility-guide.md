@@ -181,7 +181,7 @@ The pinned versions are conservative; on newer Python / numpy / pandas the scrip
 - **CSV float precision**: numpy/scipy version-sensitive at the last ULP.
 - **`derived_corpus.csv` row count**: PubMed-snapshot-sensitive (grows over time).
 
-The numerical results in the manuscript (Hedges' *g* = −0.43, etc.) are robust to these drifts.
+The numerical results in the manuscript (Hedges' *g* = −0.49, etc.) are robust to these drifts.
 
 ---
 
