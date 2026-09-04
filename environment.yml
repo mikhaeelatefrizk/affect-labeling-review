@@ -9,7 +9,10 @@ dependencies:
   - scipy=1.11.4
   - matplotlib=3.8.2
   - requests=2.31.0
-  - jsonschema=4.20.0
+  # Held below 4.18 to satisfy frictionless 5.16.0's `jsonschema<4.18`
+  # constraint, matching requirements.txt. Pinning 4.20.0 here made the
+  # documented conda path unsatisfiable.
+  - jsonschema=4.17.3
   - pip=23.3.2
   - pip:
     - bibtexparser==1.4.1

@@ -7,7 +7,7 @@ The four figures referenced in the manuscript, each in PNG (display) and PDF (ve
 | File | Generator script | What it shows |
 |---|---|---|
 | `prisma_flow.{png,pdf}` | [`prisma/build_prisma.py`](../prisma/build_prisma.py) | PRISMA 2020 flow diagram: 1,889 records identified → 1,571 screened → 282 full-text → 100 included, with breakdown into the 5 synthesis subsets. |
-| `forest_plot.{png,pdf}` | [`meta-analysis/run_meta_analysis.py`](../meta-analysis/run_meta_analysis.py) | Forest plot of the *k* = 9 effect sizes with 95% CIs and the random-effects pooled diamond at *g* = −0.43 [−0.68, −0.18]. |
+| `forest_plot.{png,pdf}` | [`meta-analysis/run_meta_analysis.py`](../meta-analysis/run_meta_analysis.py) | Forest plot of the *k* = 8 effect sizes with 95% CIs and the random-effects pooled diamond at *g* = −0.49 [−0.73, −0.26]. |
 | `funnel_plot.{png,pdf}` | [`meta-analysis/run_meta_analysis.py`](../meta-analysis/run_meta_analysis.py) | Funnel plot for publication-bias inspection. Pseudo-CI envelope drawn around the pooled estimate. |
 | `rob_summary.{png,pdf}` | [`supplementary/build_rob_figure.py`](../supplementary/build_rob_figure.py) | Traffic-light summary of risk-of-bias judgments across the 19 RoB-assessed studies and 5 domains. |
 

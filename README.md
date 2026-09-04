@@ -7,24 +7,26 @@
 [![Cite this repository](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--1069--9558-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0006-1069-9558)
 
-This repository is the full open-research package for a pre-registered (PROSPERO) systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
+This repository is the full open-research package for a systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
 
 > **Status: Preprint / working paper. Not yet peer-reviewed.** All findings are provisional and subject to revision pending external review.
 
 ## Headline result
 
-Random-effects meta-analysis of nine peripheral-physiology effect sizes from seven independent studies:
+Random-effects meta-analysis of eight peripheral-physiology effect sizes from six studies. Kircanski 2012 contributes three of the eight, so the effect sizes are not independent of one another:
 
-- **Pooled Hedges' g = −0.43, 95% CI [−0.68, −0.18], p < .001**
-- 95% prediction interval [−1.13, +0.27] **crosses zero**
-- I² = 48.3%, τ² = 0.070
+- **Pooled Hedges' g = −0.49, 95% CI [−0.73, −0.26], p < .001**
+- 95% prediction interval [−1.07, +0.08] **crosses zero**
+- I² = 36.2%, τ² = 0.040
 
 Pre-specified lab-stratified moderator analysis:
 
 - **UCLA Lieberman/Craske axis only:** g = **−0.74**, 95% CI [−1.02, −0.47], k = 5, I² = 0%
-- **Independent laboratories only:** g = **−0.13**, 95% CI [−0.41, +0.14], k = 4, I² = 27.8% — non-significant; CI crosses zero
+- **Independent laboratories only:** g = **−0.23**, 95% CI [−0.51, +0.05], k = 3, I² = 23.6% — non-significant; CI crosses zero
 
-The 0.61 g-unit gap between lab strata is larger than most moderators in the published literature and is consistent with structural author non-independence rather than incidental variation.
+The 0.52 g-unit gap between lab strata is larger than most moderators in the published literature and is consistent with structural author non-independence rather than incidental variation.
+
+> **These figures were corrected in v1.1.0.** Through v1.0.1 the review reported g = −0.43 and a 0.61 gap across nine effect sizes. Three of those nine (Plaisted 2022, McRae 2010, Fitzpatrick 2019) were round stand-in values encoding "the report describes a null" rather than extracted effect sizes, and they carried most of the weight of the independent-lab stratum. Two have since been extracted from the source tables and one dropped as unrecoverable. **Egger's test also crosses significance under the corrected set (p = .047, was p = .164)**, so small-study bias is now a live concern rather than a suspicion. See the [CHANGELOG](CHANGELOG.md).
 
 ## For data scientists and ML researchers
 
@@ -32,8 +34,8 @@ The screening corpus is published as a labeled dataset suitable for training and
 
 | You want… | File | Note |
 |-----------|------|------|
-| The 100 included papers (positive class) | `data/screening/included_papers.csv` | Generated from `references.bib` + manuscript |
-| The candidate corpus (~1,800 papers) with `included` 0/1 labels | `data/screening/derived_screening_log.csv` | **The training file.** Re-derived from PubMed using the pre-registered query |
+| The identifiable included papers (positive class) | `data/screening/included_papers.csv` | **22 rows, not 100.** Generated from `references.bib` + manuscript; the other 78 of the 100 claimed includes could not be enumerated. See `data/QUALITY_REPORT.md` |
+| The candidate corpus (3,892 records) | `data/screening/derived_screening_log.csv` | **Positive-unlabelled, not 0/1.** 14 rows are labelled `include`; the remaining 3,878 are `unknown`, not confirmed excludes. There is no negative class, so this is not usable as a labelled training file without further annotation. Re-derived from PubMed using the canonical query |
 | The pre-registered query and search strategy | [`data/searches/search_strategy.md`](data/searches/search_strategy.md) | PRISMA-S compliant |
 | The exclusion-reason taxonomy | [`data/exclusion_reason_codebook.md`](data/exclusion_reason_codebook.md) | The 6 full-text exclusion codes used in the original review |
 | Aggregate PRISMA counts | [`prisma/prisma_counts.csv`](prisma/prisma_counts.csv) | Structured form of the published flow |
@@ -42,12 +44,12 @@ The screening corpus is published as a labeled dataset suitable for training and
 
 ## Data Availability
 
-All data needed to reproduce, re-analyze, or extend this review is in this repository under [`LICENSE-DATA`](LICENSE-DATA) (CC-BY-4.0). No external archive is currently used; the [`.zenodo.json`](.zenodo.json) configures a DOI mint on the next tagged release.
+All data needed to reproduce, re-analyze, or extend this review is in this repository under [`LICENSE-DATA`](LICENSE-DATA) (CC-BY-4.0). The repository is archived on Zenodo under concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595), which always resolves to the latest version; [`.zenodo.json`](.zenodo.json) supplies the metadata for each tagged release.
 
 | Layer | Where | Source of truth? |
 |-------|-------|------------------|
 | Manuscript and figures | `manuscript/`, `figures/` | Yes |
-| Pre-registration | `prereg/PROSPERO_preregistration.md` | Yes (canonical inclusion/exclusion criteria) |
+| Pre-registration | `prereg/PROSPERO_preregistration.md` | Yes for the canonical inclusion/exclusion criteria. Written to the PROSPERO CRD template but **never submitted to the PROSPERO registry** |
 | PRISMA flow and counts | `prisma/prisma_counts.csv` (structured), `prisma/prisma_counts.txt` (legacy) | Yes |
 | Effect sizes | `meta-analysis/extracted_effect_sizes.csv` | Yes |
 | Risk-of-bias assessments | `supplementary/risk_of_bias.csv` | Yes |
@@ -214,7 +216,7 @@ The Burklund et al. (2024) PTSD pilot trial is flagged for a **commercial confli
 1. Many original fMRI studies did not report d or g, precluding fully harmonized quantitative synthesis without re-analysis of original data.
 2. Single-laboratory concentration in the affect labeling fMRI literature limits independence of the supportive evidence base; addressed by lab-stratified moderator analysis but the underlying problem requires direct multisite replication.
 3. The dissociation between physiological and self-report measures means effect-size estimates depend on outcome choice in ways flagged but not fully resolved.
-4. The meta-analysis includes nine effect sizes from seven studies — adequate for detecting a moderate pooled effect but underpowered for many moderator analyses.
+4. The meta-analysis includes eight effect sizes from six studies — adequate for detecting a moderate pooled effect but underpowered for many moderator analyses.
 5. Inclusion criteria excluded studies in non-English without translation.
 6. **Screening was performed by a single coder.** Inter-rater agreement statistics are not available. The derived screening log (`data/screening/derived_screening_log.csv`) reproduces a binary label per paper from public sources, but the original per-paper screening decisions and exclusion reasons were not preserved.
 
@@ -224,7 +226,7 @@ The canonical citation is in [`CITATION.cff`](CITATION.cff) (machine-readable). 
 
 ```
 Wahba, M. A. R. (2026). Putting feelings into words: A systematic review
-and meta-analysis of affect labeling (v1.0.0).
+and meta-analysis of affect labeling (v1.1.0).
 Zenodo. https://doi.org/10.5281/zenodo.20109595
 ```
 

@@ -8,6 +8,95 @@ For any release, the canonical archive of record is the corresponding Zenodo dep
 
 ---
 
+## [v1.1.0] — 2026-09-04
+
+**Analytic numbers changed.** This is the first release in which the meta-analytic
+results differ from v1.0.0. Three of the nine effect sizes were not extracted values,
+the methods text said they were, and correcting them moves the headline. If you have
+cited the v1.0.x figures, cite these instead.
+
+| | v1.0.1 | v1.1.0 |
+|---|---|---|
+| Effect sizes (studies) | 9 (7) | 8 (6) |
+| Pooled Hedges' *g* | −0.43 [−0.68, −0.18] | **−0.49 [−0.73, −0.26]** |
+| Heterogeneity | Q(8) = 15.48, I² = 48.3%, τ² = 0.070 | Q(7) = 10.96, I² = 36.2%, τ² = 0.040 |
+| 95% prediction interval | [−1.13, +0.27] | [−1.07, +0.08] |
+| UCLA axis | −0.74 [−1.02, −0.47], k = 5 | −0.74 [−1.02, −0.47], k = 5 (unchanged) |
+| Independent labs | −0.13 [−0.41, +0.14], k = 4 | **−0.23 [−0.51, +0.05], k = 3** |
+| Lab-stratified gap | 0.61 | **0.52** |
+| Egger's test | −4.55, p = .164 (n.s.) | **−4.33, p = .047 (significant)** |
+
+### Fixed
+
+- **Three effect sizes were imputed, not extracted.** Plaisted (2022), McRae (2010)
+  and Fitzpatrick (2019) carried round stand-in values (*d* = 0.00, +0.10, −0.10)
+  encoding "the report describes a null result", while `run_meta_analysis.py` stated
+  that values were "extracted from published reports" and manuscript §3.3 said "we
+  extracted". Those three carried roughly 70% of the fixed-effect weight of the
+  independent-laboratory stratum — the stratum that produces the review's
+  lab-stratified headline. Resolved as follows.
+- **Plaisted (2022): 0.00 → −0.220, *n* 20/20 → 27/27.** Extracted from the Table 2
+  heart-rate descriptives (post-speech recovery HR at one-week follow-up, 90.2 (9.4)
+  vs. 92.2 (8.8)). The recovery window matches Niles (2015) so the strata stay
+  comparable. The trial is three-arm, *N* = 81. The arms are unbalanced at pre-test,
+  so the change score gives −0.49; that is recorded as a sensitivity analysis because
+  its standard error needs a pre-post correlation the paper does not report.
+- **Fitzpatrick (2019): −0.10 → −0.036, *n* 15/15 → 30 within-subject.** Extracted
+  from the Table 3 healthy-control descriptives averaged over the two script types
+  (3.095 vs. 3.205, pooled *SD* 3.020). The paper reports no healthy-control-only
+  inferential test for skin conductance. SCR there is an overdispersed count modelled
+  with a negative-binomial GEE, so an SMD on the descriptives is a crude summary.
+- **McRae (2010): dropped.** Closed access with no repository copy, so no statistic
+  could be recovered, and the contrast as coded ("subjective AL vs. passive") appears
+  not to exist in the paper: the design compares subjective against *objective*
+  labelling across four exposure durations and reports an interaction. Documented as
+  an exclusion rather than estimated. Reinstatable if the full text is obtained.
+- **Egger's test now crosses significance** (p = .047, was p = .164). This is a direct
+  consequence of the above and is reported as such: small-study or publication bias is
+  now a live concern rather than a suspicion. Egger's test is underpowered at k = 8 and
+  should corroborate the lab-stratified pattern, not stand alone.
+- **McRae (2010) citation was wrong.** The recorded title, "The effects of objective
+  and subjective emotion labels on emotional response", does not exist. The real title
+  is "The effects of verbal labelling on psychophysiology: Objective but not subjective
+  emotion labelling reduces skin-conductance responses to briefly presented pictures"
+  (verified against Crossref). Second author corrected to E. Keolani Taitano; the
+  affiliation label "Tucson/Geneva" corrected to Arizona/Stanford — there is no Geneva
+  affiliation.
+- **Fitzpatrick (2019) authors corrected** to Jennifer Ip and Lillian Krantz (were
+  "Jenny" and "Lauren"), verified against Crossref.
+- **Plaisted lab label** corrected from "Oxford" to Birmingham/Reading/Oxford. The
+  acknowledgements thank M. Craske, which bears on the lab-independence moderator and
+  is now noted in the study record.
+- **Risk-of-bias, Plaisted row.** The `key_concerns` field cited pre-registration as a
+  basis for the domain-5 rating. No registration number, OSF link or pre-registration
+  statement could be found in the accepted manuscript or the Europe PMC record, so
+  that basis is withdrawn pending confirmation.
+- **README claims.** Removed "pre-registered (PROSPERO)" (the protocol was written to
+  the CRD template but never submitted, as `prereg/` already stated); corrected "the
+  100 included papers" to the 22 the file actually contains; relabelled the screening
+  corpus as positive-unlabelled (14 positives, no negative class) rather than a 0/1
+  training file; and removed "No external archive is currently used", which
+  contradicted the Zenodo DOI cited later in the same file.
+
+### Added
+
+- **`derivation` column** in `run_meta_analysis.py` and the derived
+  `extracted_effect_sizes.csv`, valued `extracted` for every current row. The field
+  exists so that any future imputed value has to declare itself rather than being
+  indistinguishable from an extracted one.
+
+### Changed
+
+- **`environment.yml`** pinned `jsonschema=4.20.0` while frictionless 5.16.0 requires
+  `jsonschema<4.18` (verified against PyPI metadata), making the documented conda path
+  unsatisfiable. Pinned to 4.17.3 to match `requirements.txt`.
+
+### Removed
+
+- **`scripts/__init__.py`** — empty and imported by nothing.
+
+---
+
 ## [v1.0.1] — 2026-05-11
 
 Honesty + reproducibility pass on top of v1.0.0. No analytic numbers changed; the meta-analytic results, PRISMA stage counts, and risk-of-bias judgments are identical to v1.0.0. The changes correct internal inconsistencies, populate placeholders, and improve discoverability of common questions for re-users of the dataset.

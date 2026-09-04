@@ -34,7 +34,7 @@ Sensitivity check using REML and PM is mentioned in the pre-registration; numeri
 
 The 95% CI quantifies uncertainty about the *pooled* effect across the studies in the meta-analysis. The 95% prediction interval (PI) quantifies uncertainty about the *next* study's true effect under the random-effects model. The PI is wider because it adds τ² to the variance.
 
-When the headline finding is a pooled *g* = −0.43 (95% CI [−0.68, −0.18]) but a 95% PI of [−1.13, +0.27] **crossing zero**, this is the single most informative summary in the manuscript. It says: yes, the average study shows a labelling-induced reduction, but a new study from a new lab with a new sample is genuinely uncertain in direction.
+When the headline finding is a pooled *g* = −0.49 (95% CI [−0.73, −0.26]) but a 95% PI of [−1.07, +0.08] **crossing zero**, this is the single most informative summary in the manuscript. It says: yes, the average study shows a labelling-induced reduction, but a new study from a new lab with a new sample is genuinely uncertain in direction.
 
 References: Higgins, Thompson, & Spiegelhalter (2009); Riley, Higgins, & Deeks (2011).
 
@@ -44,9 +44,9 @@ References: Higgins, Thompson, & Spiegelhalter (2009); Riley, Higgins, & Deeks (
 
 The motivating problem: approximately 30 of the 50 most-cited affect-labelling papers come from one laboratory cluster (UCLA Lieberman / Craske / Burklund / Niles / Kircanski / Tabibnia), or from close collaborators. This is a structural — not incidental — feature of the evidence base.
 
-A standard meta-regression (with `lab` as a moderator) would have been underpowered with k = 9 and a binary moderator. Instead, the protocol specified a *subgroup* analysis: pool the UCLA-axis studies separately from the independent-lab studies. This requires only that there be at least 2 studies in each subgroup (we had 5 and 4) and gives a directly interpretable answer: how much does the pooled estimate change when you exclude the originating-laboratory cluster?
+A standard meta-regression (with `lab` as a moderator) would have been underpowered with k = 8 and a binary moderator. Instead, the protocol specified a *subgroup* analysis: pool the UCLA-axis studies separately from the independent-lab studies. This requires only that there be at least 2 studies in each subgroup (we had 5 and 4) and gives a directly interpretable answer: how much does the pooled estimate change when you exclude the originating-laboratory cluster?
 
-The 0.61 g-unit gap (g = −0.74 vs. g = −0.13) is larger than virtually any moderator I could find in the published affect-labelling literature. It is consistent with structural author non-independence — a known concern in research-synthesis methodology (Stanley & Doucouliagos, 2017).
+The 0.52 g-unit gap (g = −0.74 vs. g = −0.23) is larger than virtually any moderator I could find in the published affect-labelling literature. It is consistent with structural author non-independence — a known concern in research-synthesis methodology (Stanley & Doucouliagos, 2017).
 
 ---
 
@@ -114,7 +114,7 @@ I chose (2) because the protocol-as-pre-registered captures *what was intended*,
 
 ## Why is the "Independent labs" pooled estimate reported even though k = 4 is small?
 
-Because the lab-stratified moderator analysis is the *headline* result of the review. Reporting only the UCLA-axis subgroup would amount to saying "the effect is robust within UCLA studies"; reporting only the pooled k = 9 would mask the lab dependence. The full picture requires reporting both subgroups, even at the cost of small-k inferential limits in the independent-labs subgroup.
+Because the lab-stratified moderator analysis is the *headline* result of the review. Reporting only the UCLA-axis subgroup would amount to saying "the effect is robust within UCLA studies"; reporting only the pooled k = 8 would mask the lab dependence. The full picture requires reporting both subgroups, even at the cost of small-k inferential limits in the independent-labs subgroup.
 
 The manuscript is explicit that the independent-labs estimate is non-significant and that the CI crosses zero. This is the primary substantive finding of the review: the canonical effect attenuates substantially outside the originating laboratory.
 

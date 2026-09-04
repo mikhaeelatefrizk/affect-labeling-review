@@ -154,7 +154,7 @@ Ratings: **L** = Low risk · **S** = Some concerns · **M** = Moderate · **H** 
 
 | Bias signal | Affected studies | Implication |
 |-------------|------------------|-------------|
-| Single-laboratory concentration | Lieberman 2007, Hariri 2000, Hariri 2003, Burklund 2014, Burklund 2024, Niles 2015, Tabibnia 2008, Kircanski 2012, Torrisi 2013 (UCLA / collaborators) | The lab-stratified moderator analysis (g = −0.74 UCLA vs. g = −0.13 independent) treats this as a structural, not incidental, feature. |
+| Single-laboratory concentration | Lieberman 2007, Hariri 2000, Hariri 2003, Burklund 2014, Burklund 2024, Niles 2015, Tabibnia 2008, Kircanski 2012, Torrisi 2013 (UCLA / collaborators) | The lab-stratified moderator analysis (g = −0.74 UCLA vs. g = −0.23 independent) treats this as a structural, not incidental, feature. |
 | Small-sample fMRI | Lieberman 2007, Hariri 2000, Hariri 2003, Torrisi 2013, Burklund 2014 | Effect-size estimates may be inflated; whole-brain power to detect the canonical circuit at modern standards is limited. |
 | Commercial COI | Burklund 2024 | Excluded from quantitative synthesis; included only narratively in clinical applications with COI flag. |
 | Pre-registration absent | Lieberman 2007, Hariri 2000/2003, Niles 2015 | Selective-reporting risk; all moderate-confidence findings should be re-examined when high-quality replications appear. |

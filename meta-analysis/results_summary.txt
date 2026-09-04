@@ -1,12 +1,12 @@
 RANDOM-EFFECTS META-ANALYSIS - AFFECT LABELING / PHYSIOLOGY
 ============================================================
 
-k = 9
-Pooled g = -0.428 [95% CI -0.681, -0.175]
-z = -3.319, p = 0.0009
-Q(8) = 15.48, tau^2 = 0.0704, I^2 = 48.3%
-95% prediction interval [-1.126, 0.270]
+k = 8
+Pooled g = -0.493 [95% CI -0.728, -0.258]
+z = -4.116, p = 0.0000
+Q(7) = 10.96, tau^2 = 0.0404, I^2 = 36.2%
+95% prediction interval [-1.066, 0.079]
 
 UCLA-only pooled g = -0.745 [-1.024, -0.466], k = 5
-Indep-lab pooled g = -0.134 [-0.408, 0.140], k = 4
-Egger's intercept = -4.552, p = 0.1640
+Indep-lab pooled g = -0.227 [-0.505, 0.051], k = 3
+Egger's intercept = -4.325, p = 0.0470
