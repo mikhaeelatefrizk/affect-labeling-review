@@ -4,7 +4,9 @@
 # Quick start:
 #     make install     # install Python dependencies
 #     make all         # regenerate every output in the repo
-#     make verify      # check outputs match committed versions (CI uses this)
+#     make verify      # regenerate the offline outputs and assert they match the
+#                      # committed versions (CI runs the same set of generators
+#                      # and the same git-diff gate; see the verify target)
 #     make clean       # remove generated files
 #
 # Each target is idempotent and writes outputs deterministically.
@@ -14,7 +16,7 @@
 PY := python
 PIP := $(PY) -m pip
 
-.PHONY: help install analysis prisma rob figures derive screening-log quality validate all verify clean sha
+.PHONY: help install analysis prisma rob figures references derive screening-log quality validate all verify clean sha
 
 help:
 	@echo "Targets:"
@@ -23,12 +25,13 @@ help:
 	@echo "  prisma         - run prisma/build_prisma.py (regenerates counts + figure)"
 	@echo "  rob            - run supplementary/build_rob_figure.py"
 	@echo "  figures        - alias for analysis + prisma + rob"
+	@echo "  references     - rebuild included_papers.csv + all_references.csv (offline)"
 	@echo "  derive         - run derivation chain (PubMed re-query -> screening log)"
 	@echo "  screening-log  - alias for derive"
 	@echo "  quality        - generate data/QUALITY_REPORT.md"
 	@echo "  validate       - schema-validate all CSVs in data/"
 	@echo "  all            - install + figures + derive + quality + validate"
-	@echo "  verify         - run all and assert no files changed (for CI)"
+	@echo "  verify         - regenerate offline outputs and assert the CI-gated files are unchanged"
 	@echo "  sha            - print SHA-256 of every generated output"
 	@echo "  clean          - remove generated outputs"
 
@@ -46,8 +49,11 @@ rob:
 
 figures: analysis prisma rob
 
-derive screening-log:
+references:
 	$(PY) scripts/extract_included_list.py
+	$(PY) scripts/build_all_references.py
+
+derive screening-log: references
 	$(PY) scripts/build_derived_corpus.py
 	$(PY) scripts/build_derived_screening_log.py
 
@@ -61,9 +67,12 @@ all: install figures derive quality validate sha
 	@echo ""
 	@echo "[OK] Full build complete."
 
-verify: all
-	@git diff --exit-code -- '*.csv' '*.txt' '*.png' '*.pdf' '*.md' || \
-		(echo "FAIL: outputs changed; commit the regenerated files."; exit 1)
+verify: figures references
+	$(PY) scripts/validate_screening_log.py
+	@git diff --exit-code -- 'meta-analysis/*.csv' 'meta-analysis/*.txt' \
+		'prisma/prisma_counts.txt' 'prisma/prisma_counts.csv' 'prisma/prisma_counts.derived.txt' \
+		'data/screening/included_papers.csv' 'data/screening/all_references.csv' || \
+		(echo "FAIL: gated outputs changed; commit the regenerated files."; exit 1)
 
 sha:
 	@echo "=== SHA-256 of generated outputs (paste into release notes) ==="

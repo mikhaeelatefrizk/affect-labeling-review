@@ -23,6 +23,9 @@ Usage:
     python scripts/build_derived_corpus.py [--max N] [--api-key KEY]
 
 Environment:
+    NCBI_EMAIL          Required. Contact e-mail sent with every E-utilities
+                        request, as NCBI's usage policy asks. The script
+                        refuses to start if it is unset or empty.
     NCBI_API_KEY        Optional. Higher rate limits with a key (10 req/s
                         vs. 3 req/s). Get one free at
                         https://www.ncbi.nlm.nih.gov/account/.
@@ -69,7 +72,10 @@ ESEARCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 EFETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
 
 TOOL_NAME = "affect-labeling-review"
-EMAIL = "mikhaeelatefrizk@proton.me"
+# NCBI asks for a contact address on every E-utilities call. It is read from
+# the environment so that the repository does not hard-code a personal e-mail
+# and so that re-runners identify themselves rather than the original author.
+EMAIL = os.environ.get("NCBI_EMAIL", "")
 TOOL_VERSION = "1.0.0"
 
 
@@ -185,6 +191,13 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--api-key", default=os.environ.get("NCBI_API_KEY"),
                         help="NCBI API key (or set NCBI_API_KEY env var).")
     args = parser.parse_args(argv[1:])
+
+    if not EMAIL.strip():
+        raise SystemExit(
+            "FAIL: NCBI_EMAIL is not set. NCBI E-utilities require a contact "
+            "e-mail with each request; export NCBI_EMAIL=you@example.org and "
+            "re-run (see scripts/README.md)."
+        )
 
     delay = 0.12 if args.api_key else 0.34  # respect rate limits
 

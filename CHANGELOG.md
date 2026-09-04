@@ -8,6 +8,40 @@ For any release, the canonical archive of record is the corresponding Zenodo dep
 
 ---
 
+## [v1.1.1] — 2026-09-04
+
+**No meta-analytic number changes.** A documentation and coverage release on top of
+v1.1.0.
+
+### Added
+
+- Risk-of-bias rows for Fitzpatrick 2019 and Matejka 2013 — both meta-analysed, both
+  previously absent from `supplementary/risk_of_bias.csv`. Every domain is recorded as
+  `Not assessed` (a new code, rendered grey in the figure) rather than invented; a formal
+  ROBINS-I assessment is pending. The RoB table now has 21 rows, 17 of them plotted in the figure (the four narratively synthesised meta-analyses are not).
+- `scripts/build_derived_corpus.py` requires `NCBI_EMAIL` instead of hard-coding the
+  maintainer's address; `NCBI_API_KEY` stays optional.
+- A sixth limitation in the manuscript (§4.6): single-coder screening and the
+  reconstructed, positive-unlabelled screening log.
+
+### Fixed
+
+- Methods text (§2.7) claimed three-level modelling of the Kircanski 2012 contrasts;
+  the analysis enters them as independent effect sizes under DerSimonian-Laird, and
+  now says so.
+- Counts that still described the v1.0.x analysis: *k* = 9 → 8 and independent labs
+  *k* = 4 → 3 in the methodology deep-dive; leave-one-out range −0.38…−0.51 →
+  −0.59…−0.45 (checklist, meta-analysis README); prediction interval in the
+  meta-analysis README; "three CSVs" → two.
+- Manuscript length quoted as ~14,000 words; it is ~10,500.
+- Plaisted 2022 is no longer described as pre-registered in the RoB explanation (no
+  registration could be located).
+- The search window is stated as "through 30 June 2026" consistently.
+- `prisma/build_prisma.py` skips the `#` provenance header of the derived screening
+  log instead of counting it as data, and writes LF on every platform.
+- Documentation describes what `make verify` and CI actually gate (tabular outputs;
+  figures excluded) instead of "all outputs".
+
 ## [v1.1.0] — 2026-09-04
 
 **Analytic numbers changed.** This is the first release in which the meta-analytic

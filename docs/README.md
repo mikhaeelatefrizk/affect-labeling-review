@@ -12,7 +12,7 @@ This directory holds documentation that goes deeper than the top-level README, w
 | [`for-masters-students.md`](for-masters-students.md) | Master's-thesis readers building an AI screening pipeline | Concrete onboarding letter mapping each likely thesis-needed artifact to a downloadable file, with three labeling strategies. |
 | [`methodology-deep-dive.md`](methodology-deep-dive.md) | SLR methodologists, peer reviewers | Full reasoning behind the lab-stratified moderator analysis, the choice of Hedges' *g* over Cohen's *d*, the τ² estimator selection, and the GRADE simplification. |
 | [`extending-the-corpus.md`](extending-the-corpus.md) | Researchers who want to add their own data | How to publish a second-coder screening pass, how to run the search at a different database (PsycINFO / WoS / Scopus / Cochrane), how to merge a new effect size into the meta-analysis. |
-| [`glossary.md`](glossary.md) | Anyone unfamiliar with SLR terminology | Plain-language definitions for affect labelling, PRISMA, RoB 2, Hedges' *g*, prediction interval, PU learning, and ~30 other terms used in the package. |
+| [`glossary.md`](glossary.md) | Anyone unfamiliar with SLR terminology | Plain-language definitions for 46 terms used in the package, including affect labelling, PRISMA, RoB 2, Hedges' *g*, prediction interval, and PU learning. |
 | [`troubleshooting.md`](troubleshooting.md) | Reproducers hitting an error | Top 10 issues and fixes — Python version mismatches, matplotlib backend errors on headless servers, PubMed E-utilities rate limiting, encoding issues on Windows, and more. |
 
 ## Reading order for a new master's / PhD reader
@@ -20,7 +20,7 @@ This directory holds documentation that goes deeper than the top-level README, w
 1. **Top-level [`README.md`](../README.md)** — project overview, headline result, badges.
 2. **[`docs/glossary.md`](glossary.md)** — five minutes to align on terminology.
 3. **[`prereg/PROSPERO_preregistration.md`](../prereg/PROSPERO_preregistration.md)** — the protocol authoring intent and the post-completion update.
-4. **[`manuscript/manuscript.md`](../manuscript/manuscript.md)** — the full ~14,000-word paper.
+4. **[`manuscript/manuscript.md`](../manuscript/manuscript.md)** — the full ~10,500-word paper.
 5. **[`docs/methodology-deep-dive.md`](methodology-deep-dive.md)** — the *why* behind the analytic choices.
 6. **[`docs/reproducibility-guide.md`](reproducibility-guide.md)** — clone, build, verify.
 7. **[`docs/for-ml-researchers.md`](for-ml-researchers.md)** — only if you want to build an SLR screening model.

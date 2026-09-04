@@ -41,6 +41,17 @@ The screening-log file you contribute will be co-authored on any future paper th
 
 The PubMed-derived corpus (n = 3,892) is the only programmatically accessible substitute for the canonical 1,842-record retrieval (which used five databases). PsycINFO, Web of Science Core, Scopus, and Cochrane Central require institutional or paid API access, which the maintainer doesn't have. If you do, you can add their records to broaden the unlabelled pool.
 
+### Re-running the PubMed derivation first
+
+If you want a fresh PubMed corpus to merge against, run `scripts/build_derived_corpus.py`. It requires `NCBI_EMAIL` to be set (the contact address NCBI asks for on every E-utilities call — the script refuses to start without it) and optionally `NCBI_API_KEY` for a higher rate limit:
+
+```bash
+export NCBI_EMAIL=you@example.org
+export NCBI_API_KEY=your_key_here     # optional
+python scripts/build_derived_corpus.py
+python scripts/build_derived_screening_log.py
+```
+
 ### What to do
 
 1. Paste the canonical Boolean query from [`data/searches/search_strategy.md`](../data/searches/search_strategy.md) into your institution's interface for one of the four blocked databases.
@@ -116,4 +127,4 @@ By opening a PR you agree that your contribution is licensed under the same term
 
 ---
 
-*This guide is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.0.0 (May 2026).*
+*This guide is part of the open-research package archived at Zenodo DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595). Last updated for v1.1.1 (September 2026).*

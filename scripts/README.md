@@ -27,7 +27,10 @@ This means each script can be imported (e.g., for testing) without side effects,
 
 All scripts depend only on what is in the top-level [`requirements.txt`](../requirements.txt). No script requires its own venv or extra installs.
 
-The `build_derived_corpus.py` script optionally uses an `NCBI_API_KEY` environment variable to bump the rate limit from 3 req/s to 10 req/s; without it the script still runs, just slower.
+`build_derived_corpus.py` reads two environment variables:
+
+- **`NCBI_EMAIL` (required).** The contact e-mail sent with every E-utilities request, as NCBI's usage policy asks. The script exits immediately with a clear message if it is unset or empty; it no longer hard-codes the maintainer's address, so re-runners identify themselves. Example: `export NCBI_EMAIL=you@example.org`.
+- **`NCBI_API_KEY` (optional).** Bumps the rate limit from 3 req/s to 10 req/s; without it the script still runs, just slower.
 
 ## How to extend
 

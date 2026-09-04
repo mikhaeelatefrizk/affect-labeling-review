@@ -223,12 +223,35 @@ def render_figure(c: dict[str, int], outdir: Path) -> None:
     plt.close()
 
 
+def skip_comment_lines(fh) -> int:
+    """Advance `fh` past leading '#' provenance lines; return how many were skipped.
+
+    Mirrors the approach in scripts/validate_screening_log.py: the derived
+    screening log and corpus carry a provenance header of '#'-prefixed lines
+    before the CSV header row, which csv.DictReader would otherwise treat as
+    data (inflating the row count and hiding the real column names).
+    """
+    skipped = 0
+    while True:
+        pos = fh.tell()
+        line = fh.readline()
+        if not line:
+            break
+        if line.startswith("#"):
+            skipped += 1
+            continue
+        fh.seek(pos)
+        break
+    return skipped
+
+
 def maybe_compare_with_derived(canonical: dict[str, int]) -> None:
     """If the derived screening log exists, write a side-by-side comparison."""
     if not DERIVED_LOG.exists():
         return
 
     with DERIVED_LOG.open(encoding="utf-8", newline="") as fh:
+        skip_comment_lines(fh)
         rows = list(csv.DictReader(fh))
 
     derived_total_records = len(rows)
@@ -251,7 +274,9 @@ def maybe_compare_with_derived(canonical: dict[str, int]) -> None:
         f"{canonical['records_excluded_at_ti_ab'] + canonical['full_text_excluded']}",
         f"Excluded (derived, label=exclude)         : {derived_excluded}",
     ]
-    DERIVED_TXT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # newline="\n" so the file is LF on every platform; CI byte-compares it.
+    with DERIVED_TXT.open("w", encoding="utf-8", newline="\n") as fh:
+        fh.write("\n".join(lines) + "\n")
 
 
 def main() -> int:

@@ -1,6 +1,6 @@
 # `manuscript/`
 
-The full ~14,000-word manuscript and any future revisions.
+The full ~10,500-word manuscript and any future revisions.
 
 ## Contents
 

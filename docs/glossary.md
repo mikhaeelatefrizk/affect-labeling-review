@@ -104,7 +104,7 @@ Terms are grouped by topic and listed alphabetically within each group.
 
 ## Project-specific terms
 
-**Canonical-identifiable include.** A study that I can confidently identify as one of the 100 canonical includes, because it is enumerated in structured form in either `meta-analysis/run_meta_analysis.py` (the 8 synthesised effect sizes, plus McRae 2010 which remains an included paper) or `supplementary/build_rob_figure.py` (the 19 RoB-assessed studies). Fewer than 100 because the original review preserved per-paper structure only for the meta-analysed and RoB-assessed subsets.
+**Canonical-identifiable include.** A study that I can confidently identify as one of the 100 canonical includes, because it is enumerated in structured form in either `meta-analysis/run_meta_analysis.py` (the 8 synthesised effect sizes, plus McRae 2010 which remains an included paper) or `supplementary/risk_of_bias.csv` (the 21 studies in the RoB table). Fewer than 100 because the original review preserved per-paper structure only for the meta-analysed and RoB-assessed subsets.
 
 **Concept DOI vs. version DOI.** Zenodo issues two DOIs per archived release: a concept DOI (e.g., 10.5281/zenodo.20109595) that always resolves to the latest version, and a version DOI (e.g., 10.5281/zenodo.20109596) that points at one specific version. Use the concept DOI in citations unless the version is load-bearing.
 
