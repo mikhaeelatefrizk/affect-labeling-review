@@ -7,13 +7,13 @@
 [![Cite this repository](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--1069--9558-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0006-1069-9558)
 
-This repository is the full open-research package for a pre-registered (PROSPERO) systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
+This repository is the full open-research package for a systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
 
 > **Status: Preprint / working paper. Not yet peer-reviewed.** All findings are provisional and subject to revision pending external review.
 
 ## Headline result
 
-Random-effects meta-analysis of nine peripheral-physiology effect sizes from seven independent studies:
+Random-effects meta-analysis of nine peripheral-physiology effect sizes from seven studies (not seven independent studies: Kircanski 2012 contributes three of the nine, and three of the nine effect sizes are imputed nulls rather than extracted values):
 
 - **Pooled Hedges' g = −0.43, 95% CI [−0.68, −0.18], p < .001**
 - 95% prediction interval [−1.13, +0.27] **crosses zero**
@@ -32,8 +32,8 @@ The screening corpus is published as a labeled dataset suitable for training and
 
 | You want… | File | Note |
 |-----------|------|------|
-| The 100 included papers (positive class) | `data/screening/included_papers.csv` | Generated from `references.bib` + manuscript |
-| The candidate corpus (~1,800 papers) with `included` 0/1 labels | `data/screening/derived_screening_log.csv` | **The training file.** Re-derived from PubMed using the pre-registered query |
+| The identifiable included papers (positive class) | `data/screening/included_papers.csv` | **22 rows, not 100.** Generated from `references.bib` + manuscript; the other 78 of the 100 claimed includes could not be enumerated. See `data/QUALITY_REPORT.md` |
+| The candidate corpus (3,892 records) | `data/screening/derived_screening_log.csv` | **Positive-unlabelled, not 0/1.** 14 rows are labelled `include`; the remaining 3,878 are `unknown`, not confirmed excludes. There is no negative class, so this is not usable as a labelled training file without further annotation. Re-derived from PubMed using the canonical query |
 | The pre-registered query and search strategy | [`data/searches/search_strategy.md`](data/searches/search_strategy.md) | PRISMA-S compliant |
 | The exclusion-reason taxonomy | [`data/exclusion_reason_codebook.md`](data/exclusion_reason_codebook.md) | The 6 full-text exclusion codes used in the original review |
 | Aggregate PRISMA counts | [`prisma/prisma_counts.csv`](prisma/prisma_counts.csv) | Structured form of the published flow |
@@ -42,12 +42,12 @@ The screening corpus is published as a labeled dataset suitable for training and
 
 ## Data Availability
 
-All data needed to reproduce, re-analyze, or extend this review is in this repository under [`LICENSE-DATA`](LICENSE-DATA) (CC-BY-4.0). No external archive is currently used; the [`.zenodo.json`](.zenodo.json) configures a DOI mint on the next tagged release.
+All data needed to reproduce, re-analyze, or extend this review is in this repository under [`LICENSE-DATA`](LICENSE-DATA) (CC-BY-4.0). The repository is archived on Zenodo under concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595), which always resolves to the latest version; [`.zenodo.json`](.zenodo.json) supplies the metadata for each tagged release.
 
 | Layer | Where | Source of truth? |
 |-------|-------|------------------|
 | Manuscript and figures | `manuscript/`, `figures/` | Yes |
-| Pre-registration | `prereg/PROSPERO_preregistration.md` | Yes (canonical inclusion/exclusion criteria) |
+| Pre-registration | `prereg/PROSPERO_preregistration.md` | Yes for the canonical inclusion/exclusion criteria. Written to the PROSPERO CRD template but **never submitted to the PROSPERO registry** |
 | PRISMA flow and counts | `prisma/prisma_counts.csv` (structured), `prisma/prisma_counts.txt` (legacy) | Yes |
 | Effect sizes | `meta-analysis/extracted_effect_sizes.csv` | Yes |
 | Risk-of-bias assessments | `supplementary/risk_of_bias.csv` | Yes |

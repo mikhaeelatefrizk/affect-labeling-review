@@ -94,7 +94,11 @@ Of 1,571 deduplicated records screened, 282 progressed to full-text review and 1
 
 ### 3.3 Random-effects meta-analysis of peripheral physiology
 
-We extracted standardized mean differences for nine effect sizes from seven independent studies reporting AL vs. control comparisons on skin conductance, non-specific SCR frequency, heart rate, or heart-rate variability. Effect sizes, sample sizes, and 95% confidence intervals are tabulated in Table 1.
+We compiled standardized mean differences for nine effect sizes from seven studies reporting AL vs. control comparisons on skin conductance, non-specific SCR frequency, heart rate, or heart-rate variability. Effect sizes, sample sizes, and 95% confidence intervals are tabulated in Table 1.
+
+**Six of the nine effect sizes are extracted; three are imputed nulls.** Plaisted (2022), McRae (2010) and Fitzpatrick (2019) carry round stand-in values (*d* = 0.00, +0.10, −0.10) that encode "the report describes a null result" rather than a standardized mean difference computed from reported statistics. Each is flagged `derivation="imputed_null"` in `meta-analysis/run_meta_analysis.py` and in the derived `extracted_effect_sizes.csv`. This matters for interpretation because those three rows carry approximately 70% of the fixed-effect weight of the independent-laboratory stratum, and it is that stratum which produces the lab-stratified contrast reported in §3.5. A subsequent source check indicates the imputed values are not merely imprecise but in at least one case wrong in magnitude: Plaisted (2022) reports full heart-rate means and standard deviations from which a real effect size in the region of −0.50 to +0.36 is recoverable depending on the contrast chosen, and two of the three studies also carry incorrect sample sizes in our coding. **The lab-stratified gap should therefore be read as provisional pending re-extraction, and the three studies are the first target of any update to this review.**
+
+Note also that the nine effect sizes come from seven studies, not seven *independent* studies: Kircanski (2012) contributes three of the nine.
 
 **Table 1.** Effect sizes included in the random-effects meta-analysis.
 
