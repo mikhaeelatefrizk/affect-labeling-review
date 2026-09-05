@@ -1,7 +1,7 @@
 # Pre-registration: Systematic Review and Meta-Analysis of Affect Labeling
 
 **Format:** PROSPERO-compatible structured pre-registration (CRD template), updated post-completion.
-**Last updated:** September 2026 (v1.1.0) — effect-size corrections recorded; earlier: May 2026 — preprint released, final identifiers populated, single-coder deviation documented in Sections 5, 19, and 20.
+**Last updated:** September 2026 (v1.1.1) — manuscript length corrected; v1.1.0 — effect-size corrections recorded; earlier: May 2026 — preprint released, final identifiers populated, single-coder deviation documented in Sections 5, 19, and 20.
 **Repository:** https://github.com/mikhaeelatefrizk/affect-labeling-review
 **Permanent archive:** Zenodo concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595)
 
