@@ -226,7 +226,7 @@ The canonical citation is in [`CITATION.cff`](CITATION.cff) (machine-readable). 
 
 ```
 Wahba, M. A. R. (2026). Putting feelings into words: A systematic review
-and meta-analysis of affect labeling (v1.1.0).
+and meta-analysis of affect labeling (v1.1.1).
 Zenodo. https://doi.org/10.5281/zenodo.20109595
 ```
 

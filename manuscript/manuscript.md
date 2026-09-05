@@ -2,7 +2,7 @@
 title: "Putting feelings into words: a systematic review and meta-analysis of affect labeling"
 author:
   - "Mikhaeel Atef Rizk Wahba, Independent researcher (ORCID 0009-0006-1069-9558)"
-date: "September 2026 (v1.1.0)"
+date: "September 2026 (v1.1.1)"
 keywords: [affect labeling, emotion regulation, amygdala, prefrontal cortex, skin conductance, replication, meta-analysis, systematic review]
 ---
 
@@ -289,7 +289,7 @@ Affect labeling is a real but contextually fragile phenomenon. The 2007 Lieberma
 
 ## Data and code availability
 
-All data, code, and supplementary materials accompanying this review are openly available at https://github.com/mikhaeelatefrizk/affect-labeling-review under permissive licenses: source code under MIT, manuscript and figures under CC-BY-4.0, and data files under CC-BY-4.0. Each tagged release (currently v1.1.0) is permanently archived on Zenodo under the concept DOI 10.5281/zenodo.20109595 (https://doi.org/10.5281/zenodo.20109595). A single `make all` from a fresh clone of the repository, with the pinned dependency set listed in `requirements.txt` (Python 3.11), regenerates every numerical result, figure, and dataset byte-for-byte. Continuous integration re-runs the meta-analysis, PRISMA and included-list generators on every push and asserts the tabular outputs match; figures are excluded from that check because PDF timestamps and rendering differ across environments.
+All data, code, and supplementary materials accompanying this review are openly available at https://github.com/mikhaeelatefrizk/affect-labeling-review under permissive licenses: source code under MIT, manuscript and figures under CC-BY-4.0, and data files under CC-BY-4.0. Each tagged release (currently v1.1.1) is permanently archived on Zenodo under the concept DOI 10.5281/zenodo.20109595 (https://doi.org/10.5281/zenodo.20109595). A single `make all` from a fresh clone of the repository, with the pinned dependency set listed in `requirements.txt` (Python 3.11), regenerates every numerical result, figure, and dataset byte-for-byte. Continuous integration re-runs the meta-analysis, PRISMA and included-list generators on every push and asserts the tabular outputs match; figures are excluded from that check because PDF timestamps and rendering differ across environments.
 
 The screening corpus was screened by a single coder (M.A.R.W.); inter-rater agreement statistics are therefore not available. The original per-paper screening decisions and exclusion reasons were not preserved in a shareable form; aggregate counts at each PRISMA stage are reported in `prisma/prisma_counts.csv` and remain canonical. To support future AI-assisted SLR research and to provide a reproducible substitute for ML training and benchmarking, a derived screening log (`data/screening/derived_screening_log.csv`) is produced by re-running the pre-registered PubMed query via the NCBI E-utilities API and joining the result against the included-papers list parsed from the manuscript and `references.bib`. The derivation is deterministic given a PubMed snapshot; expected drift between today's snapshot and the canonical 1,842 records is reported in `data/QUALITY_REPORT.md`. Limitations of the derived dataset (loss of per-paper exclusion reasons, collapse of the title/abstract vs. full-text distinction, PubMed-only coverage of the original five-database search) are documented in `data/screening/README.md`.
 
