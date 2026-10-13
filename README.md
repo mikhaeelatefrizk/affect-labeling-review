@@ -9,7 +9,7 @@
 [![Cite this repository](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--1069--9558-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0006-1069-9558)
 
-This repository is the full open-research package for a systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
+This repository is an open-research package for a systematic review and random-effects meta-analysis of **affect labeling** — the psychological and neuroscientific phenomenon, originating in Lieberman et al. (2007), in which putting feelings into words attenuates emotional responses.
 
 > **Status: Preprint / working paper. Not yet peer-reviewed.** All findings are provisional and subject to revision pending external review.
 
@@ -32,7 +32,7 @@ The 0.52 g-unit gap between lab strata is larger than most moderators in the pub
 
 ## For data scientists and ML researchers
 
-The screening corpus is published as a labeled dataset suitable for training and evaluating AI-assisted SLR screening systems (see [`data/screening/`](data/screening/)). Quick orientation:
+The repository includes identified included papers and a re-derived positive-unlabelled candidate corpus for studying AI-assisted SLR screening (see [`data/screening/`](data/screening/)). It is not a complete labelled training or evaluation dataset. Quick orientation:
 
 | You want… | File | Note |
 |-----------|------|------|
@@ -42,11 +42,11 @@ The screening corpus is published as a labeled dataset suitable for training and
 | The exclusion-reason taxonomy | [`data/exclusion_reason_codebook.md`](data/exclusion_reason_codebook.md) | The 6 full-text exclusion codes used in the original review |
 | Aggregate PRISMA counts | [`prisma/prisma_counts.csv`](prisma/prisma_counts.csv) | Structured form of the published flow |
 
-**Important honesty up front.** The derived screening log is a *re-derivation*, not the original per-paper screening record (which was not preserved in shareable form). It collapses the title/abstract vs. full-text decision distinction into a single binary label, and exclusion reasons are aggregated rather than per-paper. See [`data/screening/README.md`](data/screening/README.md) for the full caveats.
+**Important honesty up front.** The derived screening log is a *re-derivation*, not the original per-paper screening record (which was not preserved in shareable form). It does not preserve the original title/abstract and full-text decision stages, and exclusion reasons are aggregated rather than per-paper. See [`data/screening/README.md`](data/screening/README.md) for the full caveats.
 
 ## Data Availability
 
-All data needed to reproduce, re-analyze, or extend this review is in this repository under [`LICENSE-DATA`](LICENSE-DATA) (CC-BY-4.0). The repository is archived on Zenodo under concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595), which always resolves to the latest version; [`.zenodo.json`](.zenodo.json) supplies the metadata for each tagged release.
+The committed analysis inputs, derived screening data and documentation are available in this repository under [`LICENSE-DATA`](LICENSE-DATA) (CC-BY-4.0). The repository is archived on Zenodo under concept DOI [10.5281/zenodo.20109595](https://doi.org/10.5281/zenodo.20109595), which always resolves to the latest version; [`.zenodo.json`](.zenodo.json) supplies the metadata for each tagged release.
 
 | Layer | Where | Source of truth? |
 |-------|-------|------------------|
@@ -121,7 +121,7 @@ affect-labeling-review/
 │   ├── build_rob_figure.py                ← traffic-light figure code
 │   └── risk_of_bias_explanation.md        ← per-study rationale narrative
 │
-├── data/                                  ← labeled datasets (CC-BY-4.0)
+├── data/                                  ← analysis and screening data (CC-BY-4.0)
 │   ├── README.md                          ← dataset index + data dictionary
 │   ├── exclusion_reason_codebook.md       ← 6 full-text exclusion codes
 │   ├── QUALITY_REPORT.md                  ← canonical-vs-derived comparison
@@ -134,7 +134,7 @@ affect-labeling-review/
 │       ├── included_papers.csv            ← 22 confidently-identifiable of 100 includes
 │       ├── all_references.csv             ← every references.bib entry + confirmed-include flag + manuscript-mention count
 │       ├── derived_corpus.csv             ← 3,892 PubMed-derived records
-│       └── derived_screening_log.csv      ← labelled corpus (PU framing)
+│       └── derived_screening_log.csv      ← positive-unlabelled corpus
 │
 ├── scripts/                               ← derivation + validation tooling
 │   ├── extract_included_list.py           ← parse references.bib → included_papers.csv
@@ -196,7 +196,7 @@ python scripts/validate_screening_log.py
 
 ## Re-deriving the screening corpus
 
-`make derive` re-queries PubMed via the NCBI E-utilities API using the pre-registered Boolean query, fetches each candidate's metadata, joins against the included-papers list, and writes the labeled corpus to `data/screening/derived_screening_log.csv`. The whole derivation is deterministic given a PubMed snapshot.
+`make derive` re-queries PubMed via the NCBI E-utilities API using the pre-registered Boolean query, fetches each candidate's metadata, joins against the included-papers list, and writes the positive-unlabelled corpus to `data/screening/derived_screening_log.csv`. The whole derivation is deterministic given a PubMed snapshot.
 
 Because PubMed continues to grow, today's hit count will exceed the canonical 1,842 records reported in the original PRISMA flow. This drift is reported in [`data/QUALITY_REPORT.md`](data/QUALITY_REPORT.md) (regenerated by `make quality`) and is informational, not error.
 
@@ -220,7 +220,7 @@ The Burklund et al. (2024) PTSD pilot trial is flagged for a **commercial confli
 3. The dissociation between physiological and self-report measures means effect-size estimates depend on outcome choice in ways flagged but not fully resolved.
 4. The meta-analysis includes eight effect sizes from six studies — adequate for detecting a moderate pooled effect but underpowered for many moderator analyses.
 5. Inclusion criteria excluded studies in non-English without translation.
-6. **Screening was performed by a single coder.** Inter-rater agreement statistics are not available. The derived screening log (`data/screening/derived_screening_log.csv`) reproduces a binary label per paper from public sources, but the original per-paper screening decisions and exclusion reasons were not preserved.
+6. **Screening was performed by a single coder.** Inter-rater agreement statistics are not available. The derived screening log (`data/screening/derived_screening_log.csv`) marks identified includes as `include` and the remaining candidates as `unknown`; the original per-paper screening decisions and exclusion reasons were not preserved.
 
 ## How to cite
 
