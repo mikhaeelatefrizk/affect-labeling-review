@@ -1,5 +1,7 @@
 # Putting feelings into words: a systematic review and meta-analysis of affect labeling
 
+**Author:** [Mikhaeel Atef Rizk Wahba](https://github.com/mikhaeelatefrizk) · GitHub: `@mikhaeelatefrizk`
+
 [![License: code MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
 [![License: manuscript CC-BY-4.0](https://img.shields.io/badge/manuscript-CC--BY--4.0-lightgrey.svg)](LICENSE-MANUSCRIPT)
 [![License: data CC-BY-4.0](https://img.shields.io/badge/data-CC--BY--4.0-lightgrey.svg)](LICENSE-DATA)
